@@ -328,3 +328,4 @@ https://YOUR-SITE.com/admin/
 **制作**: GenSpark AI Developer  
 **最終更新**: 2026年1月8日  
 **バージョン**: 5.0（デザイン洗練版 + 管理画面マニュアル完備）
+# 再ビルドトリガー Thu Jan  8 11:12:22 UTC 2026
