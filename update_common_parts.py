@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="有限会社Rispondereに関するよくある質問をまとめています。">
-  <title>よくある質問 | 有限会社Rispondere</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-  <!-- ヘッダー -->
+#!/usr/bin/env python3
+"""
+全HTMLファイルに共通パーツ（ヘッダー・フッター・CTA）を追加するスクリプト
+"""
+
+HEADER_HTML = '''  <!-- ヘッダー -->
   <header class="header">
     <div class="header__inner">
       <div class="header__logo">
@@ -29,51 +24,17 @@
         <span></span>
       </button>
     </div>
-  </header>
+  </header>'''
 
-  <!-- ページヘッダー -->
-  <div class="page-header">
-    <h1 class="page-header__title">よくある質問</h1>
-  </div>
-
-  <!-- メインコンテンツ -->
-  <main class="faq">
-    <div class="faq__item">
-      <div class="faq__question">未経験でも大丈夫ですか?</div>
-      <div class="faq__answer">
-        はい。<br>
-        業務は段階的に覚えていただけます。
-      </div>
-    </div>
-    
-    <div class="faq__item">
-      <div class="faq__question">デザイン経験は必要ですか?</div>
-      <div class="faq__answer">
-        必須ではありません。<br>
-        業務を通じて必要な範囲から<br>
-        習得していただきます。
-      </div>
-    </div>
-    
-    <div class="faq__item">
-      <div class="faq__question">応募後の流れを教えてください。</div>
-      <div class="faq__answer">
-        まずは仕事内容の説明を行い、<br>
-        お互いの認識を確認した上で、<br>
-        次のステップをご案内します。
-      </div>
-    </div>
-  </main>
-
-  <!-- ページ下CTA（全ページ共通） -->
+CTA_HTML = '''  <!-- ページ下CTA（全ページ共通） -->
   <section class="page-cta">
     <div class="section__inner">
       <p class="page-cta__text">採用に関するご相談・ご質問は、<br>お問い合わせフォームからご連絡ください。</p>
       <a href="/contact.html" class="page-cta__button">お問い合わせへ</a>
     </div>
-  </section>
+  </section>'''
 
-  <!-- フッター -->
+FOOTER_HTML = '''  <!-- フッター -->
   <footer class="footer">
     <div class="footer__company-info">
       <div class="footer__company-name">有限会社Rispondere</div>
@@ -116,8 +77,66 @@
         <p>&copy; 有限会社Rispondere All Rights Reserved.</p>
       </div>
     </div>
-  </footer>
+  </footer>'''
 
-  <script src="/js/main.js"></script>
-</body>
-</html>
+import re
+
+def update_html_file(filepath):
+    """HTMLファイルのヘッダー・CTA・フッターを更新"""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # ヘッダーを統一形式に置換
+    content = re.sub(
+        r'  <!-- ヘッダー -->.*?</header>',
+        HEADER_HTML,
+        content,
+        flags=re.DOTALL
+    )
+    
+    # CTAを追加（フッター直前）、既存があれば置換
+    if '<!-- ページ下CTA（全ページ共通） -->' in content:
+        content = re.sub(
+            r'  <!-- ページ下CTA.*?</section>',
+            CTA_HTML,
+            content,
+            flags=re.DOTALL
+        )
+    else:
+        # フッター直前に追加
+        content = re.sub(
+            r'(  <!-- フッター -->)',
+            CTA_HTML + '\n\n\\1',
+            content
+        )
+    
+    # フッターを統一形式に置換
+    content = re.sub(
+        r'  <!-- フッター -->.*?</footer>',
+        FOOTER_HTML,
+        content,
+        flags=re.DOTALL
+    )
+    
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print(f"✅ Updated: {filepath}")
+
+# 処理対象ファイル（index.htmlとservice.htmlは手動で更新済み）
+files_to_update = [
+    'workstyle.html',
+    'company.html',
+    'recruit.html',
+    'faq.html',
+    'contact.html',
+    'privacy.html'
+]
+
+for file in files_to_update:
+    try:
+        update_html_file(file)
+    except Exception as e:
+        print(f"❌ Error updating {file}: {e}")
+
+print("\n✅ All HTML files updated with common parts!")

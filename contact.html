@@ -15,11 +15,12 @@
         <a href="/">有限会社Rispondere</a>
       </div>
       <nav class="header__nav">
+        <a href="/">TOP</a>
         <a href="/service.html">事業内容</a>
-        <a href="/workstyle.html">仕事・働き方</a>
+        <a href="/workstyle.html">働き方</a>
         <a href="/company.html">会社概要</a>
-        <a href="/faq.html">よくある質問</a>
-        <a href="/recruit.html">採用情報</a>
+        <a href="/recruit.html">採用</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/contact.html">お問い合わせ</a>
       </nav>
       <button class="header__hamburger" aria-label="メニュー" aria-expanded="false">
@@ -37,7 +38,16 @@
 
   <!-- メインコンテンツ -->
   <main class="contact-form">
-    <form id="contact-form">
+    <p style="text-align: center; margin-bottom: 2rem; font-size: 1.05rem; color: var(--color-text);">
+      採用に関するご相談・ご質問など、お気軽にお問い合わせください。
+    </p>
+
+    <!-- Formspree対応フォーム -->
+    <!-- 【重要】FormspreeでフォームIDを取得後、下記のXXXXXXXXを実際のIDに置き換えてください -->
+    <form action="https://formspree.io/f/XXXXXXXX" method="POST" id="contact-form">
+      <input type="hidden" name="_subject" value="【コーポレートサイト】お問い合わせ">
+      <input type="hidden" name="_next" value="https://[YOUR-SITE-URL]/contact.html?success=true">
+      
       <div class="form-group">
         <label for="name" class="form-group__label">お名前 <span style="color: #e74c3c;">*</span></label>
         <input type="text" id="name" name="name" class="form-group__input" required>
@@ -50,7 +60,7 @@
 
       <div class="form-group">
         <label for="message" class="form-group__label">お問い合わせ内容 <span style="color: #e74c3c;">*</span></label>
-        <textarea id="message" name="message" class="form-group__textarea" required></textarea>
+        <textarea id="message" name="message" class="form-group__textarea" rows="8" required></textarea>
       </div>
 
       <div class="form-submit">
@@ -58,13 +68,33 @@
       </div>
     </form>
 
-    <p style="margin-top: 3rem; text-align: center; color: #666; font-size: 0.9rem;">
-      送信先：<a href="mailto:info@rispondere.jp" style="color: var(--color-primary);">info@rispondere.jp</a>
+    <!-- 送信完了メッセージ（URLパラメータで表示） -->
+    <div id="success-message" style="display: none; text-align: center; padding: 2rem; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; margin-top: 2rem;">
+      <p style="color: #155724; font-size: 1.1rem; font-weight: 600;">✓ 送信が完了しました</p>
+      <p style="color: #155724; margin-top: 0.5rem;">お問い合わせいただきありがとうございます。<br>担当者より折り返しご連絡いたします。</p>
+    </div>
+
+    <p style="margin-top: 2rem; text-align: center; color: #666; font-size: 0.9rem;">
+      ※ 送信先は rispo.manager@nagopre.com です（画面には表示されません）
     </p>
   </main>
 
+  <!-- ページ下CTA（全ページ共通） -->
+  <section class="page-cta">
+    <div class="section__inner">
+      <p class="page-cta__text">採用に関するご相談・ご質問は、<br>お問い合わせフォームからご連絡ください。</p>
+      <a href="/contact.html" class="page-cta__button">お問い合わせへ</a>
+    </div>
+  </section>
+
   <!-- フッター -->
   <footer class="footer">
+    <div class="footer__company-info">
+      <div class="footer__company-name">有限会社Rispondere</div>
+      <div class="footer__address">〒460-0007 愛知県名古屋市中区新栄</div>
+      <a href="mailto:info@rispondere.jp" class="footer__email">info@rispondere.jp</a>
+    </div>
+    
     <div class="footer__inner">
       <div class="footer__content">
         <div class="footer__section">
@@ -72,7 +102,7 @@
           <ul>
             <li><a href="/company.html">会社概要</a></li>
             <li><a href="/service.html">事業内容</a></li>
-            <li><a href="/workstyle.html">仕事・働き方</a></li>
+            <li><a href="/workstyle.html">働き方</a></li>
           </ul>
         </div>
         <div class="footer__section">
@@ -86,7 +116,7 @@
           <h3>お問い合わせ</h3>
           <ul>
             <li><a href="/contact.html">お問い合わせフォーム</a></li>
-            <li><a href="mailto:info@rispondere.jp">info@rispondere.jp</a></li>
+            <li><a href="/mailto:info@rispondere.jp">info@rispondere.jp</a></li>
           </ul>
         </div>
         <div class="footer__section">

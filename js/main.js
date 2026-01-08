@@ -608,19 +608,25 @@
         initHamburgerMenu();
         initSmoothScroll();
         initContactForm();
-        loadDesignColors();      // カラー読み込み（最優先）
-        loadBanners();           // バナー読み込み
-        loadCMSContent();        // コンテンツ読み込み
+        initContactSuccessMessage();  // 送信完了メッセージ
+        initRecruitCTATracking();     // 採用→問い合わせクリック計測
+        loadDesignColors();           // カラー読み込み（最優先）
+        loadBanners();                // バナー読み込み
+        loadCMSContent();             // コンテンツ読み込み
         loadLogo();
+        loadWorksGallery();           // 実績ギャラリー
       });
     } else {
       initHamburgerMenu();
       initSmoothScroll();
       initContactForm();
+      initContactSuccessMessage();
+      initRecruitCTATracking();
       loadDesignColors();
       loadBanners();
       loadCMSContent();
       loadLogo();
+      loadWorksGallery();
     }
   }
 
@@ -628,3 +634,77 @@
   init();
 
 })();
+
+  /**
+   * お問い合わせフォーム送信完了メッセージ表示
+   */
+  function initContactSuccessMessage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      const successMessage = document.getElementById('success-message');
+      if (successMessage) {
+        successMessage.style.display = 'block';
+        // GA4イベント計測（送信完了）
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', {
+            'event_category': 'contact',
+            'event_label': 'contact_form_success'
+          });
+        }
+      }
+    }
+  }
+
+  /**
+   * 採用ページからお問い合わせへの導線クリック計測
+   */
+  function initRecruitCTATracking() {
+    // 採用ページのCTAボタンをすべて取得
+    const recruitCTAButtons = document.querySelectorAll('a[href="/contact.html"]');
+    
+    recruitCTAButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        // GA4イベント計測（採用→問い合わせクリック）
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'click', {
+            'event_category': 'recruit',
+            'event_label': 'recruit_to_contact'
+          });
+        }
+      });
+    });
+  }
+
+  /**
+   * 実績ギャラリー画像の動的生成（index.html と service.html用）
+   */
+  function loadWorksGallery() {
+    const indexGallery = document.getElementById('index-works-gallery');
+    const serviceGallery = document.getElementById('service-works-gallery');
+    
+    // デモ用画像（実際はCMSから読み込み）
+    const worksImages = [
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg'
+    ];
+    
+    function renderGallery(container) {
+      if (!container) return;
+      
+      container.innerHTML = '';
+      worksImages.forEach(function(imgSrc) {
+        const item = document.createElement('div');
+        item.className = 'works-gallery__item';
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = '制作実績';
+        item.appendChild(img);
+        container.appendChild(item);
+      });
+    }
+    
+    renderGallery(indexGallery);
+    renderGallery(serviceGallery);
+  }
+

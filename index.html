@@ -12,14 +12,15 @@
   <header class="header">
     <div class="header__inner">
       <div class="header__logo">
-        有限会社Rispondere
+        <a href="/">有限会社Rispondere</a>
       </div>
       <nav class="header__nav">
+        <a href="/">TOP</a>
         <a href="/service.html">事業内容</a>
-        <a href="/workstyle.html">仕事・働き方</a>
+        <a href="/workstyle.html">働き方</a>
         <a href="/company.html">会社概要</a>
-        <a href="/faq.html">よくある質問</a>
-        <a href="/recruit.html">採用情報</a>
+        <a href="/recruit.html">採用</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/contact.html">お問い合わせ</a>
       </nav>
       <button class="header__hamburger" aria-label="メニュー" aria-expanded="false">
@@ -33,10 +34,10 @@
   <!-- メインビジュアル -->
   <section class="hero">
     <div class="hero__inner">
-      <h1 class="hero__title">
+      <h1 class="hero__title" data-cms="hero_title">
         広告・Webを通じて、<br>クライアントの運営を支える。
       </h1>
-      <p class="hero__text">
+      <p class="hero__text" data-cms="hero_text">
         有限会社Rispondereは、<br>広告・Web・販促物の制作を行うデザイン会社です。<br><br>
         バナー制作や画像編集、Webまわりのサポートを中心に、<br>実務に即した制作・運用支援を行っています。
       </p>
@@ -47,8 +48,92 @@
     </div>
   </section>
 
+  <!-- 選ばれる理由 -->
+  <section class="reasons">
+    <h2 class="reasons__title">選ばれる理由</h2>
+    <div class="reasons__grid">
+      <div class="reason-card">
+        <div class="reason-card__icon">🔄</div>
+        <h3 class="reason-card__title">運用前提</h3>
+        <p class="reason-card__text">作って終わりではなく、更新・改善しやすい形を重視します。</p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-card__icon">⚡</div>
+        <h3 class="reason-card__title">スピード</h3>
+        <p class="reason-card__text">依頼の意図を外さず、やり取りコストを減らします。</p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-card__icon">🎯</div>
+        <h3 class="reason-card__title">仕組み化</h3>
+        <p class="reason-card__text">現場が迷わないように、情報を整えて渡します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 対応領域 -->
+  <section class="section section--gray">
+    <div class="section__inner">
+      <h2 class="pill-heading pill-heading--large">対応領域</h2>
+      
+      <div class="service-cards">
+        <div class="service-card">
+          <h3 class="service-card__title">バナー・画像制作</h3>
+          <p class="service-card__text">バナー制作／画像編集／レタッチなど、運用に必要な制作物をスピーディに整えます。</p>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-card__title">Web制作サポート</h3>
+          <p class="service-card__text">更新・差し替え前提の設計で、運用しやすいWebまわりを支援します。</p>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-card__title">制作進行・業務サポート</h3>
+          <p class="service-card__text">情報整理、進行管理、社内外調整など「回る仕組み」を整えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績ギャラリー -->
+  <section class="works-gallery">
+    <div class="section__inner">
+      <h2 class="works-gallery__title">制作実績</h2>
+      <div class="works-gallery__grid" id="index-works-gallery">
+        <!-- JavaScriptで動的に生成 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA（採用・お問い合わせ） -->
+  <section class="section">
+    <div class="section__inner" style="text-align: center;">
+      <h2 class="pill-heading pill-heading--large">採用情報</h2>
+      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: var(--color-text);">
+        正社員を募集しています。<br>
+        詳しくは採用情報ページをご覧ください。
+      </p>
+      <a href="/recruit.html" class="btn btn--primary btn--large">採用情報を見る</a>
+    </div>
+  </section>
+
+  <!-- ページ下CTA（全ページ共通） -->
+  <section class="page-cta">
+    <div class="section__inner">
+      <p class="page-cta__text">採用に関するご相談・ご質問は、<br>お問い合わせフォームからご連絡ください。</p>
+      <a href="/contact.html" class="page-cta__button">お問い合わせへ</a>
+    </div>
+  </section>
+
   <!-- フッター -->
   <footer class="footer">
+    <div class="footer__company-info">
+      <div class="footer__company-name">有限会社Rispondere</div>
+      <div class="footer__address">〒460-0007 愛知県名古屋市中区新栄</div>
+      <a href="mailto:info@rispondere.jp" class="footer__email">info@rispondere.jp</a>
+    </div>
+    
     <div class="footer__inner">
       <div class="footer__content">
         <div class="footer__section">
@@ -56,7 +141,7 @@
           <ul>
             <li><a href="/company.html">会社概要</a></li>
             <li><a href="/service.html">事業内容</a></li>
-            <li><a href="/workstyle.html">仕事・働き方</a></li>
+            <li><a href="/workstyle.html">働き方</a></li>
           </ul>
         </div>
         <div class="footer__section">
@@ -70,7 +155,7 @@
           <h3>お問い合わせ</h3>
           <ul>
             <li><a href="/contact.html">お問い合わせフォーム</a></li>
-            <li><a href="mailto:info@rispondere.jp">info@rispondere.jp</a></li>
+            <li><a href="/mailto:info@rispondere.jp">info@rispondere.jp</a></li>
           </ul>
         </div>
         <div class="footer__section">
