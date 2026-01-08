@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: OWNER/REPO # 実際のGitHubリポジトリに置き換える必要があります
+  repo: OWNER/REPO # 実際のGitHubリポジトリに置き換えてください（例: username/rispondere-site）
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
