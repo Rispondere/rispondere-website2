@@ -25,4 +25,6 @@ recruit_cta_title	正社員を募集しています。<br>詳しくは採用情�
 company_name	有限会社Rispondere	【全体】会社名
 company_address	〒460-0007 愛知県名古屋市中区新栄	【全体】住所
 company_email	info@rispondere.jp	【全体】メールアドレス
-logo_url	https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo.svg	【全体】ロゴ画像URL
+logo_url	https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo.svg	【全体】ロゴ画像URLrecruit_hero_title	整えるのが得意な人、強いです。	【採用ページ】ヒーローセクションのタイトル
+recruit_hero_subtitle	制作と運営をつなぐサポートポジション募集	【採用ページ】ヒーローセクションのサブタイトル
+recruit_company_intro	有限会社Rispondereは、広告・Web・販促物の制作を行うデザイン会社です。<br>バナー制作や画像編集、Web関連業務を中心に、実務に即した制作と運用支援を行っています。	【採用ページ】会社紹介文

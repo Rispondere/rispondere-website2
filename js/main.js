@@ -190,6 +190,20 @@
           }
         }
 
+        // 採用ページの項目を反映
+        if (settings.recruit_hero_title) {
+          const el = document.querySelector('[data-cms-recruit="hero_title"]');
+          if (el) el.innerHTML = settings.recruit_hero_title.replace(/\n/g, '<br>');
+        }
+        if (settings.recruit_hero_subtitle) {
+          const el = document.querySelector('[data-cms-recruit="hero_subtitle"]');
+          if (el) el.innerHTML = settings.recruit_hero_subtitle.replace(/\n/g, '<br>');
+        }
+        if (settings.recruit_company_intro) {
+          const el = document.querySelector('[data-cms-recruit="company_intro"]');
+          if (el) el.innerHTML = settings.recruit_company_intro.replace(/\n/g, '<br>');
+        }
+
         console.log('✅ Google Sheets settings applied to page');
       })
       .catch(function(error) {
