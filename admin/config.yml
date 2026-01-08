@@ -1,9 +1,7 @@
 backend:
-  name: github
-  repo: Rispondere/rispondere-website2
-  branch: main
-  # GitHub Backend（完全無料）
-  # 管理画面で「Login with GitHub」をクリックしてログイン
+  name: test-repo
+  # Test Backend: ブラウザのローカルストレージを使用
+  # 動作確認後、GitHub Backend に切り替えます
 
 media_folder: "images"
 public_folder: "/images"
