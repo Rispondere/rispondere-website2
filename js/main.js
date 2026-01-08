@@ -106,7 +106,73 @@
   }
 
   /**
-   * CMS管理のカラーを読み込んでCSS変数に適用
+   * 🆕 Googleスプレッドシートから設定を読み込む（管理画面）
+   */
+  function loadGoogleSheetsSettings() {
+    const SHEET_ID = '1o7-qkf3FUXXfvgRXCMg0QA7ClnTps7Wt99YeNP1zTIE';
+    const SHEET_NAME = 'settings';
+    const API_URL = 'https://opensheet.elk.sh/' + SHEET_ID + '/' + SHEET_NAME;
+
+    fetch(API_URL)
+      .then(function(response) {
+        if (!response.ok) throw new Error('Google Sheets settings not found');
+        return response.json();
+      })
+      .then(function(data) {
+        // データをキー:値のマップに変換
+        const settings = {};
+        data.forEach(function(row) {
+          if (row.key && row.value) {
+            settings[row.key] = row.value;
+          }
+        });
+
+        console.log('✅ Google Sheets settings loaded:', settings);
+
+        // テキストを反映（data-cms属性）
+        Object.keys(settings).forEach(function(key) {
+          const elements = document.querySelectorAll('[data-cms="' + key + '"]');
+          elements.forEach(function(el) {
+            el.innerHTML = settings[key].replace(/\n/g, '<br>');
+          });
+        });
+
+        // カラーを反映（CSS変数）
+        const root = document.documentElement;
+        if (settings.theme_primary) {
+          root.style.setProperty('--color-primary', settings.theme_primary);
+        }
+        if (settings.theme_secondary) {
+          root.style.setProperty('--color-secondary', settings.theme_secondary);
+        }
+        if (settings.theme_text) {
+          root.style.setProperty('--color-text', settings.theme_text);
+        }
+        if (settings.theme_bg) {
+          root.style.setProperty('--color-bg', settings.theme_bg);
+        }
+
+        // ヒーロー背景画像を反映
+        if (settings.hero_bg) {
+          const hero = document.querySelector('.hero');
+          if (hero) {
+            hero.style.backgroundImage = 'url(' + settings.hero_bg + ')';
+            hero.style.backgroundSize = 'cover';
+            hero.style.backgroundPosition = 'center';
+          }
+        }
+
+        console.log('✅ Google Sheets settings applied to page');
+      })
+      .catch(function(error) {
+        console.log('⚠️ Google Sheets not loaded, using defaults:', error.message);
+        // フォールバック: JSONファイルから読み込み
+        loadDesignColors();
+      });
+  }
+
+  /**
+   * CMS管理のカラーを読み込んでCSS変数に適用（フォールバック用）
    */
   function loadDesignColors() {
     fetch('/content/design-colors.json')
@@ -610,7 +676,7 @@
         initContactForm();
         initContactSuccessMessage();  // 送信完了メッセージ
         initRecruitCTATracking();     // 採用→問い合わせクリック計測
-        loadDesignColors();           // カラー読み込み（最優先）
+        loadGoogleSheetsSettings();   // 🆕 Googleスプレッドシートから設定読み込み（最優先）
         loadBanners();                // バナー読み込み
         loadCMSContent();             // コンテンツ読み込み
         loadLogo();
@@ -622,7 +688,7 @@
       initContactForm();
       initContactSuccessMessage();
       initRecruitCTATracking();
-      loadDesignColors();
+      loadGoogleSheetsSettings();   // 🆕 Googleスプレッドシートから設定読み込み（最優先）
       loadBanners();
       loadCMSContent();
       loadLogo();
