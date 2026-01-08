@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: OWNER/REPO # 実際のGitHubリポジトリに置き換える必要があります
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  # サイト設定
+  - name: "config"
+    label: "サイト設定"
+    files:
+      - label: "サイト設定"
+        name: "site-config"
+        file: "content/site-config.json"
+        fields:
+          - { label: "サイト名", name: "site_name", widget: "string", default: "有限会社Rispondere" }
+          - { label: "ロゴ画像", name: "logo", widget: "image", required: false }
+
+  # トップページ
+  - name: "pages"
+    label: "ページ"
+    files:
+      - label: "トップページ"
+        name: "index"
+        file: "content/index.json"
+        fields:
+          - { label: "メインコピー", name: "hero_title", widget: "text", default: "広告・Webを通じて、\nクライアントの運営を支える。" }
+          - { label: "本文", name: "hero_text", widget: "text", default: "有限会社Rispondereは、\n広告・Web・販促物の制作を行うデザイン会社です。\n\nバナー制作や画像編集、Webまわりのサポートを中心に、\n実務に即した制作・運用支援を行っています。" }
+
+      - label: "事業内容"
+        name: "service"
+        file: "content/service.json"
+        fields:
+          - { label: "ページタイトル", name: "page_title", widget: "string", default: "事業内容" }
+          - { label: "本文", name: "content", widget: "markdown", default: "当社は、広告・Web・販促物の制作を中心に、\nクライアントの業務を支えるサポートを行っています。\n\nバナー制作、画像編集、Web関連業務に加え、\n制作進行や情報整理など、\n制作と運営をつなぐ役割も担っています。\n\n実際の運用を意識し、\n「使われる広告」を前提とした対応を行っています。" }
+
+      - label: "仕事・働き方"
+        name: "workstyle"
+        file: "content/workstyle.json"
+        fields:
+          - { label: "ページタイトル", name: "page_title", widget: "string", default: "仕事・働き方" }
+          - { label: "本文", name: "content", widget: "markdown", default: "リスポンドレの仕事は、\n単なる制作業務だけではありません。\n\nクライアントの状況を理解し、\n必要な情報を整理しながら、\n制作や業務サポートを行います。\n\n業務は段階的に覚えていただくため、\n未経験の方でも安心して\n取り組める体制を整えています。" }
+
+      - label: "会社概要"
+        name: "company"
+        file: "content/company.json"
+        fields:
+          - { label: "会社名", name: "company_name", widget: "string", default: "有限会社Rispondere" }
+          - { label: "所在地（郵便番号）", name: "postal_code", widget: "string", default: "〒460-0007" }
+          - { label: "所在地（住所）", name: "address", widget: "text", default: "愛知県名古屋市中区新栄2丁目8-22\nNPWEST 5階" }
+          - { label: "事業内容", name: "business", widget: "text", default: "広告・Web・販促物の制作\n制作進行・業務サポート\n運用支援" }
+          - { label: "お問い合わせメールアドレス", name: "email", widget: "string", default: "info@rispondere.jp" }
+          - { label: "担当者名", name: "contact_person", widget: "string", default: "川満" }
+
+      - label: "採用情報"
+        name: "recruit"
+        file: "content/recruit.json"
+        fields:
+          - { label: "導入文", name: "intro", widget: "text", default: "制作進行・業務サポートを中心とした\nポジションを募集しています。\n\nまずは話を聞いてみたい、\nという段階でも構いません。" }
+          - { label: "雇用形態", name: "employment_type", widget: "string", default: "正社員" }
+          - { label: "勤務地", name: "location", widget: "string", default: "愛知県名古屋市中区新栄" }
+          - { label: "勤務時間", name: "working_hours", widget: "string", default: "10:00〜19:00（休憩60分）" }
+          - { label: "休日", name: "holidays", widget: "string", default: "月6日（シフト制）" }
+          - { label: "給与", name: "salary", widget: "string", default: "月給300,000円〜380,000円" }
+          - { label: "試用期間", name: "trial_period", widget: "string", default: "3か月（同条件）" }
+
+  # よくある質問
+  - name: "faq"
+    label: "よくある質問"
+    folder: "content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "質問", name: "question", widget: "string" }
+      - { label: "回答", name: "answer", widget: "text" }
+      - { label: "表示順", name: "order", widget: "number", default: 1 }
