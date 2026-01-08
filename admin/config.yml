@@ -1,8 +1,8 @@
 backend:
-  name: git-gateway
-  branch: main
-  # Netlify Identity + Git Gateway
-  # GitHub に保存され、GitHub Pages に自動反映されます
+  name: test-repo
+  # Test Backend: ブラウザのローカルストレージを使用
+  # 管理画面で編集をプレビューできます
+  # 実際の更新は HTML ファイルを直接編集します
 
 media_folder: "images"
 public_folder: "/rispondere-website2/images"
