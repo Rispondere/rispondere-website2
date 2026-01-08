@@ -317,15 +317,221 @@
    * 採用ページのコンテンツ適用
    */
   function applyRecruitContent(data) {
-    // data-cms-recruit属性を持つ要素にコンテンツを適用
-    Object.keys(data).forEach(function(key) {
-      const element = document.querySelector('[data-cms-recruit="' + key + '"]');
-      if (element) {
-        if (typeof data[key] === 'string') {
-          element.innerHTML = data[key].replace(/\n/g, '<br>');
+    // 基本的なテキスト適用
+    if (data.hero_title) {
+      const el = document.querySelector('[data-cms-recruit="hero_title"]');
+      if (el) el.innerHTML = data.hero_title.replace(/\n/g, '<br>');
+    }
+    if (data.hero_subtitle) {
+      const el = document.querySelector('[data-cms-recruit="hero_subtitle"]');
+      if (el) el.innerHTML = data.hero_subtitle.replace(/\n/g, '<br>');
+    }
+    if (data.company_intro) {
+      const el = document.querySelector('[data-cms-recruit="company_intro"]');
+      if (el) el.innerHTML = data.company_intro.replace(/\n/g, '<br>');
+    }
+    if (data.application_text) {
+      const el = document.querySelector('[data-cms-recruit="application_text"]');
+      if (el) el.innerHTML = data.application_text.replace(/\n/g, '<br>');
+    }
+
+    // ギャラリー画像の生成
+    if (data.gallery_images && Array.isArray(data.gallery_images)) {
+      const galleryGrid = document.getElementById('gallery-grid');
+      if (galleryGrid) {
+        galleryGrid.innerHTML = '';
+        data.gallery_images.forEach(function(imgSrc) {
+          const item = document.createElement('div');
+          item.className = 'gallery__item';
+          const img = document.createElement('img');
+          img.src = imgSrc;
+          img.alt = '制作実績';
+          item.appendChild(img);
+          galleryGrid.appendChild(item);
+        });
+      }
+    }
+
+    // 業務サポート職の内容
+    if (data.support) {
+      const s = data.support;
+      
+      // data-cms-support属性への適用
+      Object.keys(s).forEach(function(key) {
+        if (typeof s[key] === 'string') {
+          const el = document.querySelector('[data-cms-support="' + key + '"]');
+          if (el) el.innerHTML = s[key].replace(/\n/g, '<br>');
+        }
+      });
+
+      // 給与の仕組み（allowances配列）
+      if (s.allowances && Array.isArray(s.allowances)) {
+        const allowancesList = document.getElementById('allowances-list');
+        if (allowancesList) {
+          allowancesList.innerHTML = '';
+          s.allowances.forEach(function(item) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            allowancesList.appendChild(li);
+          });
         }
       }
-    });
+
+      // 向いている人リスト
+      if (s.fit_good && Array.isArray(s.fit_good)) {
+        const fitGoodList = document.getElementById('fit-good-list');
+        if (fitGoodList) {
+          fitGoodList.innerHTML = '';
+          s.fit_good.forEach(function(item) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            fitGoodList.appendChild(li);
+          });
+        }
+      }
+
+      // 向かない人リスト
+      if (s.fit_bad && Array.isArray(s.fit_bad)) {
+        const fitBadList = document.getElementById('fit-bad-list');
+        if (fitBadList) {
+          fitBadList.innerHTML = '';
+          s.fit_bad.forEach(function(item) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            fitBadList.appendChild(li);
+          });
+        }
+      }
+
+      // 1日の流れ
+      if (s.day_flow && Array.isArray(s.day_flow)) {
+        const dayFlowTimeline = document.getElementById('day-flow-timeline');
+        if (dayFlowTimeline) {
+          dayFlowTimeline.innerHTML = '';
+          s.day_flow.forEach(function(item) {
+            const flowItem = document.createElement('div');
+            flowItem.className = 'day-flow__item';
+            
+            const time = document.createElement('div');
+            time.className = 'day-flow__time';
+            time.textContent = item.time;
+            
+            const activity = document.createElement('div');
+            activity.className = 'day-flow__activity';
+            activity.textContent = item.activity;
+            
+            flowItem.appendChild(time);
+            flowItem.appendChild(activity);
+            dayFlowTimeline.appendChild(flowItem);
+          });
+        }
+      }
+
+      // 仕事内容カード
+      if (s.job_cards && Array.isArray(s.job_cards)) {
+        const jobCardsGrid = document.getElementById('job-cards-grid');
+        if (jobCardsGrid) {
+          jobCardsGrid.innerHTML = '';
+          s.job_cards.forEach(function(card) {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card';
+            
+            const title = document.createElement('h3');
+            title.className = 'card__title';
+            title.textContent = card.title;
+            
+            const text = document.createElement('p');
+            text.className = 'card__text';
+            text.textContent = card.description;
+            
+            cardDiv.appendChild(title);
+            cardDiv.appendChild(text);
+            jobCardsGrid.appendChild(cardDiv);
+          });
+        }
+      }
+
+      // 勤務について
+      if (s.work_info && Array.isArray(s.work_info)) {
+        const workInfoList = document.getElementById('work-info-list');
+        if (workInfoList) {
+          workInfoList.innerHTML = '';
+          s.work_info.forEach(function(item) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            workInfoList.appendChild(li);
+          });
+        }
+      }
+
+      // 福利厚生
+      if (s.welfare && Array.isArray(s.welfare)) {
+        const welfareList = document.getElementById('welfare-list');
+        if (welfareList) {
+          welfareList.innerHTML = '';
+          s.welfare.forEach(function(item) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            welfareList.appendChild(li);
+          });
+        }
+      }
+
+      // 選考フロー
+      if (s.selection_flow && Array.isArray(s.selection_flow)) {
+        const selectionFlowSteps = document.getElementById('selection-flow-steps');
+        if (selectionFlowSteps) {
+          selectionFlowSteps.innerHTML = '';
+          s.selection_flow.forEach(function(flow) {
+            const step = document.createElement('div');
+            step.className = 'selection-flow__step';
+            
+            const stepNumber = document.createElement('div');
+            stepNumber.className = 'selection-flow__step-number';
+            stepNumber.textContent = 'STEP ' + flow.step;
+            
+            const stepTitle = document.createElement('div');
+            stepTitle.className = 'selection-flow__step-title';
+            stepTitle.textContent = flow.title;
+            
+            const stepDesc = document.createElement('div');
+            stepDesc.className = 'selection-flow__step-desc';
+            stepDesc.textContent = flow.description;
+            
+            step.appendChild(stepNumber);
+            step.appendChild(stepTitle);
+            step.appendChild(stepDesc);
+            selectionFlowSteps.appendChild(step);
+          });
+        }
+      }
+    }
+
+    // デザイン職の内容
+    if (data.designer) {
+      const d = data.designer;
+      
+      // data-cms-designer属性への適用
+      Object.keys(d).forEach(function(key) {
+        if (typeof d[key] === 'string') {
+          const el = document.querySelector('[data-cms-designer="' + key + '"]');
+          if (el) el.innerHTML = d[key].replace(/\n/g, '<br>');
+        }
+      });
+
+      // 求めるスキルリスト
+      if (d.skills && Array.isArray(d.skills)) {
+        const designerSkillsList = document.getElementById('designer-skills-list');
+        if (designerSkillsList) {
+          designerSkillsList.innerHTML = '';
+          d.skills.forEach(function(skill) {
+            const li = document.createElement('li');
+            li.textContent = skill;
+            designerSkillsList.appendChild(li);
+          });
+        }
+      }
+    }
   }
 
   /**

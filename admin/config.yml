@@ -26,40 +26,40 @@ collections:
         name: "banners"
         file: "content/banners.json"
         fields:
-          - label: "トップページヒーローバナー"
+          - label: "トップページ - ヒーローバナー"
             name: "hero"
-            widget: "object"
-            fields:
-              - { label: "表示する", name: "enabled", widget: "boolean", default: false }
-              - { label: "画像", name: "image", widget: "image", required: false }
-          
-          - label: "採用ページ - トップバナー"
-            name: "recruit_top"
             widget: "object"
             fields:
               - { label: "表示する", name: "enabled", widget: "boolean", default: false }
               - { label: "画像（横長推奨）", name: "image", widget: "image", required: false }
           
-          - label: "採用ページ - バナー1（ポイント後）"
+          - label: "採用ページ - ヒーロー画像（横長・1枚）"
+            name: "recruit_hero"
+            widget: "object"
+            fields:
+              - { label: "表示する", name: "enabled", widget: "boolean", default: false }
+              - { label: "画像（横長推奨・ヒーローセクション直後）", name: "image", widget: "image", required: false }
+          
+          - label: "採用ページ - 縦長バナー1（業務サポート職内）"
             name: "recruit_banner1"
             widget: "object"
             fields:
               - { label: "表示する", name: "enabled", widget: "boolean", default: false }
-              - { label: "画像（縦長推奨）", name: "image", widget: "image", required: false }
+              - { label: "画像（縦長推奨・業務サポート職セクション終了後）", name: "image", widget: "image", required: false }
           
-          - label: "採用ページ - バナー2（給与後）"
+          - label: "採用ページ - 縦長バナー2（デザイン職セクション後）"
             name: "recruit_banner2"
             widget: "object"
             fields:
               - { label: "表示する", name: "enabled", widget: "boolean", default: false }
-              - { label: "画像（縦長推奨）", name: "image", widget: "image", required: false }
+              - { label: "画像（縦長推奨・デザイン職セクション終了後）", name: "image", widget: "image", required: false }
           
-          - label: "採用ページ - バナー3（最後）"
+          - label: "採用ページ - 縦長バナー3（FAQ後・最終）"
             name: "recruit_banner3"
             widget: "object"
             fields:
               - { label: "表示する", name: "enabled", widget: "boolean", default: false }
-              - { label: "画像（縦長推奨）", name: "image", widget: "image", required: false }
+              - { label: "画像（縦長推奨・よくある質問後・最終位置）", name: "image", widget: "image", required: false }
 
   # サイト設定
   - name: "config"
@@ -108,95 +108,162 @@ collections:
           - { label: "お問い合わせメールアドレス", name: "email", widget: "string", default: "info@rispondere.jp" }
           - { label: "担当者名", name: "contact_person", widget: "string", default: "川満" }
 
-  # 採用ページ（デザイン強化版）
+  # 採用ページ（2本立て：業務サポート＋デザイン職）
   - name: "recruit"
     label: "採用ページ"
     files:
-      - label: "採用情報詳細"
+      - label: "採用情報（2本立て）"
         name: "recruit"
         file: "content/recruit.json"
         fields:
-          # ヒーローセクション
-          - label: "ヒーローセクション"
-            name: "hero_section"
+          # ヒーロー
+          - { label: "ヒーロー - メインコピー", name: "hero_title", widget: "string", default: "整えるのが得意な人、強いです。" }
+          - { label: "ヒーロー - サブコピー", name: "hero_subtitle", widget: "string", default: "制作と運営をつなぐサポートポジション募集" }
+          
+          # 会社紹介
+          - { label: "会社紹介（短く）", name: "company_intro", widget: "text", default: "有限会社Rispondereは、広告・Web・販促物の制作を行うデザイン会社です。\nバナー制作や画像編集、Web関連業務を中心に、実務に即した制作と運用支援を行っています。" }
+          
+          # 制作実績ギャラリー（最大6枚）
+          - label: "制作実績ギャラリー（最大6枚）"
+            name: "gallery_images"
+            widget: "list"
+            max: 6
+            field: { label: "画像", name: "image", widget: "image" }
+            default:
+              - "/images/placeholder.svg"
+              - "/images/placeholder.svg"
+              - "/images/placeholder.svg"
+              - "/images/placeholder.svg"
+              - "/images/placeholder.svg"
+              - "/images/placeholder.svg"
+          
+          # 募集①：業務サポート職
+          - label: "募集① 業務サポート職（正社員）"
+            name: "support"
             widget: "object"
             collapsed: false
             fields:
-              - { label: "バッジ", name: "badge", widget: "string", default: "正社員募集" }
-              - { label: "メインタイトル", name: "hero_title", widget: "string", default: "正社員募集｜長く安心して働ける仕事" }
-              - { label: "サブタイトル", name: "hero_subtitle", widget: "text", default: "将来を見据えて、腰を据えて働きたい方向けの募集です。" }
-          
-          # 導入文
-          - { label: "導入文", name: "intro_text", widget: "text", default: "仕事は一つずつ覚えていくため、未経験からスタートした人も在籍しています。\n「まずは話だけ聞きたい」も歓迎です。" }
-          
-          # ポイント3つ
-          - label: "ポイント1"
-            name: "point1"
-            widget: "object"
-            fields:
-              - { label: "タイトル", name: "point1_title", widget: "string", default: "腰を据えて働ける安定した正社員" }
-              - { label: "説明", name: "point1_text", widget: "text", default: "長期的なキャリアを見据えて、安心して働ける環境を提供します。" }
-          
-          - label: "ポイント2"
-            name: "point2"
-            widget: "object"
-            fields:
-              - { label: "タイトル", name: "point2_title", widget: "string", default: "月給・年収の目安が最初から分かる" }
-              - { label: "説明", name: "point2_text", widget: "text", default: "給与体系が明確で、将来の見通しが立てやすい環境です。" }
-          
-          - label: "ポイント3"
-            name: "point3"
-            widget: "object"
-            fields:
-              - { label: "タイトル", name: "point3_title", widget: "string", default: "取り組みが評価に反映される" }
-              - { label: "説明", name: "point3_text", widget: "text", default: "実績と努力に応じた評価制度で、成長を後押しします。" }
-          
-          # 給与・年収
-          - label: "給与情報"
-            name: "salary_info"
-            widget: "object"
-            fields:
-              - { label: "年収例（数字）", name: "annual_income", widget: "string", default: "500〜600万円" }
+              - { label: "職種名", name: "job_title", widget: "string", default: "業務サポート職" }
+              - { label: "サブタイトル", name: "job_subtitle", widget: "string", default: "制作進行・事務・運営サポート" }
+              - { label: "仕事内容説明", name: "job_description", widget: "text", default: "制作進行、問い合わせ対応、事務作業、備品管理など、制作と運営をつなぐサポート業務を担当します。\n仕事は一つずつ覚えていくため、未経験からスタートした人も在籍しています。" }
+              
+              # ポイント3つ
+              - { label: "ポイント1 - タイトル", name: "point1_title", widget: "string", default: "腰を据えて働ける安定した正社員" }
+              - { label: "ポイント1 - 説明", name: "point1_text", widget: "text", default: "長期的なキャリアを見据えて、安心して働ける環境を提供します。" }
+              - { label: "ポイント2 - タイトル", name: "point2_title", widget: "string", default: "月給・年収の目安が最初から分かる" }
+              - { label: "ポイント2 - 説明", name: "point2_text", widget: "text", default: "給与体系が明確で、将来の見通しが立てやすい環境です。" }
+              - { label: "ポイント3 - タイトル", name: "point3_title", widget: "string", default: "取り組みが評価に反映される" }
+              - { label: "ポイント3 - 説明", name: "point3_text", widget: "text", default: "実績と努力に応じた評価制度で、成長を後押しします。" }
+              
+              # 給与
+              - { label: "年収例", name: "annual_income", widget: "string", default: "500〜600万円" }
               - { label: "年収注記", name: "annual_income_note", widget: "string", default: "※評価・役割に応じて段階的に上がります" }
-              - { label: "月収例（数字）", name: "monthly_income", widget: "string", default: "30〜40万円" }
+              - { label: "月収例", name: "monthly_income", widget: "string", default: "30〜40万円" }
               - { label: "月収注記", name: "monthly_income_note", widget: "string", default: "※目安金額です" }
+              
+              # 給与の仕組み
+              - label: "給与の仕組み（手当リスト）"
+                name: "allowances"
+                widget: "list"
+                field: { label: "手当", name: "item", widget: "string" }
+                default: ["基本給 + 各種手当", "通勤手当（上限あり）", "時間外手当", "賞与（年2回）", "昇給・昇格制度あり"]
+              
+              # 向いている人・向かない人
+              - label: "向いている人"
+                name: "fit_good"
+                widget: "list"
+                field: { label: "項目", name: "item", widget: "string" }
+                default: ["コツコツと丁寧に進めることが得意な人", "複数のことを整理しながら進められる人", "人とのやりとりが苦にならない人", "長期的に腰を据えて働きたい人"]
+              
+              - label: "向かない人"
+                name: "fit_bad"
+                widget: "list"
+                field: { label: "項目", name: "item", widget: "string" }
+                default: ["短期的な仕事を探している人", "制作メインで働きたい人", "日々変わらない環境で働きたい人"]
+              
+              # 1日の流れ
+              - label: "1日の流れ"
+                name: "day_flow"
+                widget: "list"
+                fields:
+                  - { label: "時間", name: "time", widget: "string" }
+                  - { label: "業務内容", name: "activity", widget: "string" }
+                default:
+                  - { time: "10:00", activity: "出社・メール確認・1日のタスク整理" }
+                  - { time: "10:30", activity: "問い合わせ対応・事務業務" }
+                  - { time: "12:00", activity: "休憩（60分）" }
+                  - { time: "13:00", activity: "制作進行サポート・調整業務" }
+                  - { time: "15:00", activity: "備品管理・発注業務" }
+                  - { time: "17:00", activity: "翌日準備・報告作成" }
+                  - { time: "19:00", activity: "退社" }
+              
+              # 仕事内容カード
+              - label: "具体的な業務（カード）"
+                name: "job_cards"
+                widget: "list"
+                fields:
+                  - { label: "タイトル", name: "title", widget: "string" }
+                  - { label: "説明", name: "description", widget: "text" }
+                default:
+                  - { title: "受付・問い合わせ対応", description: "お客様からのお問い合わせに丁寧に対応します。電話、メールでの受付が中心です。" }
+                  - { title: "事務／備品管理", description: "日々の事務作業や備品の管理を担当します。発注や在庫チェックも含まれます。" }
+                  - { title: "運営サポート（調整・進行）", description: "プロジェクトの円滑な進行をサポートします。スケジュール調整や進捗管理を行います。" }
+                  - { title: "制作データ整理", description: "制作に使うデータの整理・管理を行います。ファイルの命名や保管ルールに沿って進めます。" }
+                  - { title: "簡易なWeb更新作業", description: "CMS等を使った簡単なWeb更新作業を担当します。専門知識は不要です。" }
+                  - { title: "その他サポート業務", description: "チーム全体のサポート業務を幅広く担当します。状況に応じて柔軟に対応します。" }
+              
+              # 勤務について
+              - label: "勤務について"
+                name: "work_info"
+                widget: "list"
+                field: { label: "項目", name: "item", widget: "string" }
+                default: ["勤務地：愛知県名古屋市中区新栄", "勤務時間：10:00〜19:00（休憩60分）", "休日：月6日（シフト制）", "週休2日相当", "有給休暇制度あり"]
+              
+              # 福利厚生
+              - label: "福利厚生"
+                name: "welfare"
+                widget: "list"
+                field: { label: "項目", name: "item", widget: "string" }
+                default: ["社会保険完備", "賞与（年2回）", "昇給・昇格制度", "各種手当あり", "通勤手当（上限あり）", "試用期間：3か月（同条件）"]
+              
+              # 選考フロー
+              - label: "選考フロー"
+                name: "selection_flow"
+                widget: "list"
+                fields:
+                  - { label: "ステップ番号", name: "step", widget: "string" }
+                  - { label: "タイトル", name: "title", widget: "string" }
+                  - { label: "説明", name: "description", widget: "text" }
+                default:
+                  - { step: "1", title: "電話・メールで問い合わせ", description: "まずはお気軽にご連絡ください。「話を聞きたい」だけでもOKです。" }
+                  - { step: "2", title: "仕事内容の説明", description: "具体的な仕事内容や条件について、分かりやすくご説明します。" }
+                  - { step: "3", title: "面談", description: "お互いの認識を確認し、疑問点を解消します。" }
+                  - { step: "4", title: "条件確認・採用", description: "条件面の最終確認を行い、入社日を調整します。" }
           
-          # 手当リスト
-          - label: "手当・給与の仕組み"
-            name: "allowances"
-            widget: "list"
-            default: ["基本給 + 各種手当", "通勤手当（上限あり）", "時間外手当", "賞与（年2回）", "昇給・昇格制度あり"]
-            field: { label: "手当項目", name: "allowance", widget: "string" }
-          
-          # 仕事内容カード
-          - label: "仕事内容カード"
-            name: "job_cards"
-            widget: "list"
+          # 募集②：デザイン職（将来枠）
+          - label: "募集② デザイン職（将来の募集枠）"
+            name: "designer"
+            widget: "object"
+            collapsed: true
             fields:
-              - { label: "タイトル", name: "title", widget: "string" }
-              - { label: "説明", name: "text", widget: "text" }
-            default:
-              - { title: "受付・問い合わせ対応", text: "お客様からのお問い合わせに丁寧に対応します。" }
-              - { title: "事務／備品管理", text: "日々の事務作業や備品の管理を担当します。" }
-              - { title: "運営サポート（調整・進行）", text: "プロジェクトの円滑な進行をサポートします。" }
-              - { title: "その他サポート業務", text: "チーム全体のサポート業務を幅広く担当します。" }
+              - { label: "ステータス表示", name: "status", widget: "string", default: "登録受付中" }
+              - { label: "ステータスバッジ", name: "status_badge", widget: "string", default: "登録受付中" }
+              - { label: "職種名", name: "title", widget: "string", default: "デザイン職（募集予定枠）" }
+              - { label: "紹介文", name: "intro", widget: "text", default: "制作に集中できる環境で、実務に強いデザインを。\n\n現在は状況により募集を行う場合があります。\n募集開始時に優先的にご案内をご希望の方は、事前登録（お問い合わせ）を受け付けています。" }
+              - label: "求めるスキル（例）"
+                name: "skills"
+                widget: "list"
+                field: { label: "スキル", name: "skill", widget: "string" }
+                default:
+                  - "Illustrator・Photoshopでの実務経験"
+                  - "バナー・販促物・Web素材の制作経験"
+                  - "クライアントワークの経験（制作会社・インハウス問わず）"
+                  - "納期・品質を意識した制作ができる方"
+                  - "基本的なコミュニケーション力"
+              - { label: "ポートフォリオ案内", name: "portfolio_text", widget: "string", default: "ポートフォリオURLがあれば、お問い合わせ時に添えてください。" }
           
-          # 勤務について
-          - label: "勤務について"
-            name: "work_info"
-            widget: "list"
-            default: ["勤務地：愛知県名古屋市中区新栄", "勤務時間：10:00〜19:00（休憩60分）", "休日：月6日（シフト制）", "週休2日相当", "有給休暇制度あり"]
-            field: { label: "勤務項目", name: "work_item", widget: "string" }
-          
-          # 福利厚生
-          - label: "福利厚生"
-            name: "welfare"
-            widget: "list"
-            default: ["社会保険完備", "賞与（年2回）", "昇給・昇格制度", "各種手当あり", "通勤手当（上限あり）", "試用期間：3か月（同条件）"]
-            field: { label: "福利厚生項目", name: "welfare_item", widget: "string" }
-          
-          # 応募について
-          - { label: "応募について（安心の締め）", name: "application_text", widget: "text", default: "「いきなり応募は不安」という方も大丈夫です。\n条件や仕事内容は、分かりやすく説明します。" }
+          # 応募について（安心の締め）
+          - { label: "応募について（安心の締め）", name: "application_text", widget: "text", default: "「いきなり応募は不安」という方も大丈夫です。\n条件や仕事内容は、分かりやすく説明します。\n電話での問い合わせも歓迎しています。" }
 
   # よくある質問
   - name: "faq"
