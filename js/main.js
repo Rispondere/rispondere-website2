@@ -162,6 +162,34 @@
           }
         }
 
+        // ロゴ画像を反映
+        if (settings.logo_url) {
+          const logoImages = document.querySelectorAll('.header__logo img');
+          logoImages.forEach(function(img) {
+            img.src = settings.logo_url;
+          });
+        }
+
+        // 実績ギャラリー画像を反映
+        const worksGallery = document.getElementById('index-works-gallery');
+        if (worksGallery) {
+          worksGallery.innerHTML = '';
+          
+          // works_image1, works_image2, works_image3 を読み込み
+          for (let i = 1; i <= 3; i++) {
+            const imageKey = 'works_image' + i;
+            if (settings[imageKey]) {
+              const item = document.createElement('div');
+              item.className = 'works-gallery__item';
+              const img = document.createElement('img');
+              img.src = settings[imageKey];
+              img.alt = '制作実績' + i;
+              item.appendChild(img);
+              worksGallery.appendChild(item);
+            }
+          }
+        }
+
         console.log('✅ Google Sheets settings applied to page');
       })
       .catch(function(error) {
