@@ -257,9 +257,25 @@ git push
 
 ## 📚 ドキュメント
 
+### 🔰 初心者向けガイド（NEW!）
+- **BEGINNER_DEPLOY_GUIDE.md** - 超初心者向けデプロイガイド（完全図解）⭐
+- **STEP_BY_STEP_GUIDE.md** - 画像で見るステップバイステップガイド（所要時間20分）⭐
+
+### 📖 管理画面・設定ガイド
+- **CMS_MANUAL.md** - 管理画面の詳細マニュアル（16,000文字）
+- **ADMIN_QUICK_START.md** - 管理画面クイックスタート（5分で理解）
+- **GITHUB_OAUTH_SETUP.md** - GitHub OAuth認証設定ガイド（図解付き）
+
+### 📋 納品・技術ドキュメント
 - **README.md** - このファイル（プロジェクト概要）
-- **MANUAL.md** - 管理画面の詳細マニュアル
-- **DELIVERY_REPORT.md** - 納品報告書
+- **MANUAL.md** - 旧マニュアル（参考）
+- **DELIVERY_REPORT_V5.md** - 最新の納品報告書
+- **DESIGN_V5_SUMMARY.md** - デザイン改善のビジュアルサマリー
+
+### ⚙️ 設定ガイド
+- **FORMSPREE_SETUP.md** - お問い合わせフォーム設定手順
+- **GA4_SETUP.md** - Google Analytics 4 設定手順
+- **images/logo/LOGO_README.md** - ロゴ差し替え手順
 
 ---
 
@@ -274,27 +290,6 @@ git push
 バージョン: 3.0（採用ページ2本立て完成版）
 
 ---
-
-## 📖 マニュアル・ドキュメント
-
-### 管理画面の使い方
-**CMS_MANUAL.md** - 詳細な管理画面操作マニュアル
-- ✅ 管理画面へのアクセス方法とログイン手順
-- ✅ デザインカラーの変更方法（図解付き）
-- ✅ バナー画像の追加・削除・表示切替
-- ✅ 採用情報・ページコンテンツの編集
-- ✅ FAQ管理（追加・編集・削除・順序変更）
-- ✅ 画像のアップロード（推奨サイズ一覧）
-- ✅ 保存と公開の手順
-- ✅ トラブルシューティング（6つの主要問題）
-
-### その他のドキュメント
-- **MANUAL.md** - 旧マニュアル（参考）
-- **DELIVERY_REPORT_V5.md** - 最新の納品報告書
-- **DESIGN_V5_SUMMARY.md** - デザイン改善のビジュアルサマリー
-- **FORMSPREE_SETUP.md** - お問い合わせフォーム設定手順
-- **GA4_SETUP.md** - Google Analytics 4 設定手順
-- **images/logo/LOGO_README.md** - ロゴ差し替え手順
 
 ---
 
