@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "enabled": false,
+    "image": ""
+  },
+  "recruit_top": {
+    "enabled": false,
+    "image": ""
+  },
+  "recruit_banner1": {
+    "enabled": false,
+    "image": ""
+  },
+  "recruit_banner2": {
+    "enabled": false,
+    "image": ""
+  },
+  "recruit_banner3": {
+    "enabled": false,
+    "image": ""
+  }
+}

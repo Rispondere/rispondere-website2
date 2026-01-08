@@ -1,5 +1,5 @@
 /* ==========================================================================
-   有限会社Rispondere コーポレートサイト - 共通スタイル
+   有限会社Rispondere コーポレートサイト - デザイン強化版
    ========================================================================== */
 
 /* リセット・基本設定
@@ -18,17 +18,17 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   line-height: 1.8;
-  color: #333;
-  background-color: #fff;
+  color: var(--color-text);
+  background-color: var(--color-bg);
   font-feature-settings: "palt";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: #2c3e50;
+  color: var(--color-primary);
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 a:hover {
@@ -41,15 +41,26 @@ img {
   display: block;
 }
 
-/* カラーパレット
+/* CMS管理可能なカラーパレット（デザインカラー変数システム）
    ========================================================================== */
 :root {
-  --color-primary: #2c3e50; /* ダークネイビー */
-  --color-text: #333;
-  --color-bg: #fff;
-  --color-bg-light: #f5f5f5; /* 薄いグレー */
-  --color-border: #ddd;
-  --color-accent: #34495e; /* アクセント用ダークグレー */
+  /* CMS管理対象カラー */
+  --color-primary: #d32f2f;        /* メインカラー（赤） */
+  --color-secondary: #f44336;      /* サブカラー（明るい赤） */
+  --color-bg: #fff;                /* 背景色 */
+  --color-text: #333;              /* 文字色 */
+  
+  /* 派生カラー（自動計算） */
+  --color-primary-light: #ffebee;  /* メインカラー薄め */
+  --color-primary-dark: #b71c1c;   /* メインカラー濃いめ */
+  --color-bg-light: #f5f5f5;       /* 薄いグレー背景 */
+  --color-bg-dark: #fafafa;        /* やや濃いグレー背景 */
+  --color-border: #e0e0e0;         /* ボーダー */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* 影 */
+  
+  /* テキストカラー */
+  --color-text-light: #666;
+  --color-text-muted: #999;
 }
 
 /* ヘッダー
@@ -60,7 +71,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--color-shadow);
 }
 
 .header__inner {
@@ -89,6 +100,23 @@ img {
   font-size: 0.9rem;
   color: var(--color-text);
   font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.header__nav a:hover::after {
+  width: 100%;
 }
 
 /* ハンバーガーメニュー（モバイル用） */
@@ -163,10 +191,486 @@ img {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* メインビジュアル
+/* ボタン
    ========================================================================== */
-.hero {
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  opacity: 1;
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--color-shadow);
+}
+
+.btn--secondary {
+  background-color: #fff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn--secondary:hover {
+  opacity: 1;
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn--large {
+  padding: 1.25rem 3rem;
+  font-size: 1.1rem;
+}
+
+.btn--full {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 帯（ピル型見出し）デザイン
+   ========================================================================== */
+.pill-heading {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.pill-heading--large {
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+}
+
+/* セクション帯（全幅背景） */
+.section-band {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.section-band h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* セクション
+   ========================================================================== */
+.section {
+  padding: 5rem 0;
+}
+
+.section--gray {
   background-color: var(--color-bg-light);
+}
+
+.section--primary-light {
+  background-color: var(--color-primary-light);
+}
+
+.section__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 0.1em;
+}
+
+.section__subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 3rem 0 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.section__text {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+/* カードデザイン
+   ========================================================================== */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--color-shadow);
+}
+
+.card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.card__text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+/* カードグリッド */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* 番号付きポイントカード */
+.point-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.point-card__number {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.point-card__content {
+  flex: 1;
+}
+
+.point-card__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.point-card__text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+/* 番号付きポイントリスト */
+.point-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+/* 大きな数字（給与・年収など）
+   ========================================================================== */
+.big-number {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.big-number__value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.big-number__label {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.big-number__note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+}
+
+/* 数字グリッド */
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* 枠付きセクション */
+.box-section {
+  background: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin: 3rem 0;
+}
+
+.box-section__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.box-section__list {
+  list-style: none;
+}
+
+.box-section__list li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.8;
+}
+
+.box-section__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ====================================================================
+   採用ページ専用スタイル
+   ==================================================================== */
+
+/* 採用ヒーローセクション */
+.recruit-hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.recruit-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 L1200,0 L1200,80 Q600,120 0,80 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat bottom;
+  background-size: cover;
+}
+
+.recruit-hero__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.recruit-hero__badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.recruit-hero__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.recruit-hero__subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* バナー画像セクション */
+.banner-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.banner-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--color-shadow);
+  margin: 0 auto;
+}
+
+.banner-section--vertical img {
+  max-width: 600px;
+}
+
+/* 導入文 */
+.recruit-intro {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--color-bg-light);
+}
+
+.recruit-intro__text {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: var(--color-text);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 給与セクション */
+.salary-section {
+  background: linear-gradient(to bottom, var(--color-primary-light) 0%, #fff 50%);
+  padding: 5rem 0;
+}
+
+.salary-highlight {
+  background: #fff;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px var(--color-shadow);
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.salary-highlight__title {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+/* 手当リスト */
+.allowance-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.allowance-item {
+  background: var(--color-bg-light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.allowance-item__icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.allowance-item__label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* 応募安心セクション */
+.application-safety {
+  background: var(--color-primary-light);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 20px;
+  margin: 4rem 0;
+}
+
+.application-safety__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.application-safety__text {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--color-text);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+/* お問い合わせ導線 */
+.contact-cta {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.contact-cta__buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-cta__email {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-top: 1.5rem;
+}
+
+/* ====================================================================
+   その他のページ用スタイル
+   ==================================================================== */
+
+/* トップページヒーロー */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, #fff 100%);
   padding: 5rem 0;
   text-align: center;
 }
@@ -179,7 +683,7 @@ img {
 
 .hero__title {
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -200,105 +704,21 @@ img {
   flex-wrap: wrap;
 }
 
-/* ボタン
-   ========================================================================== */
-.btn {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  letter-spacing: 0.05em;
-}
-
-.btn--primary {
-  background-color: var(--color-primary);
-  color: #fff;
-}
-
-.btn--primary:hover {
-  opacity: 1;
-  background-color: var(--color-accent);
-}
-
-.btn--secondary {
-  background-color: #fff;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-}
-
-.btn--secondary:hover {
-  opacity: 1;
-  background-color: var(--color-primary);
-  color: #fff;
-}
-
-.btn--full {
-  width: 100%;
-  max-width: 400px;
-}
-
-/* セクション
-   ========================================================================== */
-.section {
-  padding: 4rem 0;
-}
-
-.section--gray {
-  background-color: var(--color-bg-light);
-}
-
-.section__inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section__title {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  text-align: center;
-  margin-bottom: 3rem;
-  letter-spacing: 0.05em;
-}
-
-.section__subtitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin: 2.5rem 0 1.5rem;
-  letter-spacing: 0.05em;
-}
-
-.section__text {
-  font-size: 1.05rem;
-  line-height: 2;
-  color: var(--color-text);
-  margin-bottom: 1.5rem;
-}
-
-/* ページヘッダー
-   ========================================================================== */
+/* ページヘッダー */
 .page-header {
-  background-color: var(--color-bg-light);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
   padding: 3rem 0;
   text-align: center;
 }
 
 .page-header__title {
   font-size: 2rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
-/* コンテンツエリア
-   ========================================================================== */
+/* コンテンツエリア */
 .content {
   max-width: 900px;
   margin: 0 auto;
@@ -312,8 +732,7 @@ img {
   margin-bottom: 2rem;
 }
 
-/* FAQ
-   ========================================================================== */
+/* FAQ */
 .faq {
   max-width: 900px;
   margin: 0 auto;
@@ -321,39 +740,51 @@ img {
 }
 
 .faq__item {
-  border-bottom: 1px solid var(--color-border);
-  padding: 2rem 0;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  transition: all 0.3s ease;
 }
 
-.faq__item:first-child {
-  border-top: 1px solid var(--color-border);
+.faq__item:hover {
+  box-shadow: 0 4px 16px var(--color-shadow);
 }
 
 .faq__question {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-primary);
   margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
   position: relative;
 }
 
 .faq__question::before {
-  content: "Q.";
+  content: "Q";
   position: absolute;
   left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
 .faq__answer {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 2;
   color: var(--color-text);
-  padding-left: 1.5rem;
+  padding-left: 2rem;
 }
 
-/* 会社情報
-   ========================================================================== */
+/* 会社情報 */
 .company-info {
   max-width: 900px;
   margin: 0 auto;
@@ -363,14 +794,22 @@ img {
 .company-info__table {
   width: 100%;
   border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .company-info__row {
   border-bottom: 1px solid var(--color-border);
 }
 
+.company-info__row:last-child {
+  border-bottom: none;
+}
+
 .company-info__label {
-  padding: 1.5rem 1rem;
+  padding: 1.5rem;
   font-weight: 600;
   color: var(--color-primary);
   width: 200px;
@@ -379,57 +818,11 @@ img {
 }
 
 .company-info__value {
-  padding: 1.5rem 1rem;
+  padding: 1.5rem;
   line-height: 2;
 }
 
-/* 採用情報
-   ========================================================================== */
-.recruit {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 4rem 20px;
-}
-
-.recruit__intro {
-  font-size: 1.1rem;
-  line-height: 2;
-  color: var(--color-text);
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.recruit__details {
-  background-color: var(--color-bg-light);
-  padding: 2.5rem;
-  border-radius: 8px;
-  margin-bottom: 3rem;
-}
-
-.recruit__detail-item {
-  display: flex;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.recruit__detail-item:last-child {
-  border-bottom: none;
-}
-
-.recruit__detail-label {
-  font-weight: 600;
-  color: var(--color-primary);
-  width: 150px;
-  flex-shrink: 0;
-}
-
-.recruit__detail-value {
-  flex: 1;
-  line-height: 1.8;
-}
-
-/* お問い合わせフォーム
-   ========================================================================== */
+/* お問い合わせフォーム */
 .contact-form {
   max-width: 700px;
   margin: 0 auto;
@@ -450,10 +843,10 @@ img {
 .form-group__input,
 .form-group__textarea {
   width: 100%;
-  padding: 0.8rem;
+  padding: 1rem;
   font-size: 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
   font-family: inherit;
   transition: border-color 0.3s ease;
 }
@@ -462,6 +855,7 @@ img {
 .form-group__textarea:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 .form-group__textarea {
@@ -474,8 +868,7 @@ img {
   margin-top: 2.5rem;
 }
 
-/* プライバシーポリシー
-   ========================================================================== */
+/* プライバシーポリシー */
 .privacy {
   max-width: 900px;
   margin: 0 auto;
@@ -488,6 +881,8 @@ img {
   color: var(--color-primary);
   margin: 3rem 0 1.5rem;
   letter-spacing: 0.05em;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .privacy h2:first-of-type {
@@ -526,7 +921,7 @@ img {
     flex-direction: column;
     padding: 1rem 20px;
     border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px var(--color-shadow);
   }
 
   .header__nav.is-open {
@@ -538,15 +933,17 @@ img {
   }
 
   /* ヒーローセクション */
-  .hero__title {
-    font-size: 1.8rem;
+  .hero__title,
+  .recruit-hero__title {
+    font-size: 1.75rem;
   }
 
   .hero__text {
     font-size: 1rem;
   }
 
-  .hero__buttons {
+  .hero__buttons,
+  .contact-cta__buttons {
     flex-direction: column;
     align-items: center;
   }
@@ -558,6 +955,30 @@ img {
 
   .page-header__title {
     font-size: 1.5rem;
+  }
+
+  /* 大きな数字 */
+  .big-number__value {
+    font-size: 2.5rem;
+  }
+
+  /* カードグリッド */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .number-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ポイントカード */
+  .point-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .point-card__number {
+    margin: 0 auto 1rem;
   }
 
   /* 会社情報テーブル */
@@ -577,18 +998,27 @@ img {
     padding-top: 0.5rem;
   }
 
-  /* 採用詳細 */
-  .recruit__detail-item {
-    flex-direction: column;
-  }
-
-  .recruit__detail-label {
-    width: 100%;
-    margin-bottom: 0.5rem;
+  /* 手当リスト */
+  .allowance-list {
+    grid-template-columns: 1fr;
   }
 
   /* フッター */
   .footer__content {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .recruit-hero__title {
+    font-size: 1.5rem;
+  }
+
+  .section-band h2 {
+    font-size: 1.5rem;
+  }
+
+  .big-number__value {
+    font-size: 2rem;
   }
 }

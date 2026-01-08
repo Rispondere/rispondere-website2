@@ -9,6 +9,58 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
+  # デザイン設定
+  - name: "design"
+    label: "デザイン設定"
+    files:
+      - label: "カラー設定"
+        name: "design-colors"
+        file: "content/design-colors.json"
+        fields:
+          - { label: "メインカラー（HEX）", name: "primary", widget: "string", default: "#d32f2f", pattern: ['^#[0-9A-Fa-f]{6}$', "HEX形式で入力してください（例：#ff0000）"] }
+          - { label: "サブカラー（HEX）", name: "secondary", widget: "string", default: "#f44336", pattern: ['^#[0-9A-Fa-f]{6}$', "HEX形式で入力してください"] }
+          - { label: "背景色（HEX）", name: "bg", widget: "string", default: "#ffffff", pattern: ['^#[0-9A-Fa-f]{6}$', "HEX形式で入力してください"] }
+          - { label: "文字色（HEX）", name: "text", widget: "string", default: "#333333", pattern: ['^#[0-9A-Fa-f]{6}$', "HEX形式で入力してください"] }
+
+      - label: "バナー画像管理"
+        name: "banners"
+        file: "content/banners.json"
+        fields:
+          - label: "トップページヒーローバナー"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "表示する", name: "enabled", widget: "boolean", default: false }
+              - { label: "画像", name: "image", widget: "image", required: false }
+          
+          - label: "採用ページ - トップバナー"
+            name: "recruit_top"
+            widget: "object"
+            fields:
+              - { label: "表示する", name: "enabled", widget: "boolean", default: false }
+              - { label: "画像（横長推奨）", name: "image", widget: "image", required: false }
+          
+          - label: "採用ページ - バナー1（ポイント後）"
+            name: "recruit_banner1"
+            widget: "object"
+            fields:
+              - { label: "表示する", name: "enabled", widget: "boolean", default: false }
+              - { label: "画像（縦長推奨）", name: "image", widget: "image", required: false }
+          
+          - label: "採用ページ - バナー2（給与後）"
+            name: "recruit_banner2"
+            widget: "object"
+            fields:
+              - { label: "表示する", name: "enabled", widget: "boolean", default: false }
+              - { label: "画像（縦長推奨）", name: "image", widget: "image", required: false }
+          
+          - label: "採用ページ - バナー3（最後）"
+            name: "recruit_banner3"
+            widget: "object"
+            fields:
+              - { label: "表示する", name: "enabled", widget: "boolean", default: false }
+              - { label: "画像（縦長推奨）", name: "image", widget: "image", required: false }
+
   # サイト設定
   - name: "config"
     label: "サイト設定"
@@ -20,7 +72,7 @@ collections:
           - { label: "サイト名", name: "site_name", widget: "string", default: "有限会社Rispondere" }
           - { label: "ロゴ画像", name: "logo", widget: "image", required: false }
 
-  # トップページ
+  # ページ
   - name: "pages"
     label: "ページ"
     files:
@@ -56,17 +108,95 @@ collections:
           - { label: "お問い合わせメールアドレス", name: "email", widget: "string", default: "info@rispondere.jp" }
           - { label: "担当者名", name: "contact_person", widget: "string", default: "川満" }
 
-      - label: "採用情報"
+  # 採用ページ（デザイン強化版）
+  - name: "recruit"
+    label: "採用ページ"
+    files:
+      - label: "採用情報詳細"
         name: "recruit"
         file: "content/recruit.json"
         fields:
-          - { label: "導入文", name: "intro", widget: "text", default: "制作進行・業務サポートを中心とした\nポジションを募集しています。\n\nまずは話を聞いてみたい、\nという段階でも構いません。" }
-          - { label: "雇用形態", name: "employment_type", widget: "string", default: "正社員" }
-          - { label: "勤務地", name: "location", widget: "string", default: "愛知県名古屋市中区新栄" }
-          - { label: "勤務時間", name: "working_hours", widget: "string", default: "10:00〜19:00（休憩60分）" }
-          - { label: "休日", name: "holidays", widget: "string", default: "月6日（シフト制）" }
-          - { label: "給与", name: "salary", widget: "string", default: "月給300,000円〜380,000円" }
-          - { label: "試用期間", name: "trial_period", widget: "string", default: "3か月（同条件）" }
+          # ヒーローセクション
+          - label: "ヒーローセクション"
+            name: "hero_section"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "バッジ", name: "badge", widget: "string", default: "正社員募集" }
+              - { label: "メインタイトル", name: "hero_title", widget: "string", default: "正社員募集｜長く安心して働ける仕事" }
+              - { label: "サブタイトル", name: "hero_subtitle", widget: "text", default: "将来を見据えて、腰を据えて働きたい方向けの募集です。" }
+          
+          # 導入文
+          - { label: "導入文", name: "intro_text", widget: "text", default: "仕事は一つずつ覚えていくため、未経験からスタートした人も在籍しています。\n「まずは話だけ聞きたい」も歓迎です。" }
+          
+          # ポイント3つ
+          - label: "ポイント1"
+            name: "point1"
+            widget: "object"
+            fields:
+              - { label: "タイトル", name: "point1_title", widget: "string", default: "腰を据えて働ける安定した正社員" }
+              - { label: "説明", name: "point1_text", widget: "text", default: "長期的なキャリアを見据えて、安心して働ける環境を提供します。" }
+          
+          - label: "ポイント2"
+            name: "point2"
+            widget: "object"
+            fields:
+              - { label: "タイトル", name: "point2_title", widget: "string", default: "月給・年収の目安が最初から分かる" }
+              - { label: "説明", name: "point2_text", widget: "text", default: "給与体系が明確で、将来の見通しが立てやすい環境です。" }
+          
+          - label: "ポイント3"
+            name: "point3"
+            widget: "object"
+            fields:
+              - { label: "タイトル", name: "point3_title", widget: "string", default: "取り組みが評価に反映される" }
+              - { label: "説明", name: "point3_text", widget: "text", default: "実績と努力に応じた評価制度で、成長を後押しします。" }
+          
+          # 給与・年収
+          - label: "給与情報"
+            name: "salary_info"
+            widget: "object"
+            fields:
+              - { label: "年収例（数字）", name: "annual_income", widget: "string", default: "500〜600万円" }
+              - { label: "年収注記", name: "annual_income_note", widget: "string", default: "※評価・役割に応じて段階的に上がります" }
+              - { label: "月収例（数字）", name: "monthly_income", widget: "string", default: "30〜40万円" }
+              - { label: "月収注記", name: "monthly_income_note", widget: "string", default: "※目安金額です" }
+          
+          # 手当リスト
+          - label: "手当・給与の仕組み"
+            name: "allowances"
+            widget: "list"
+            default: ["基本給 + 各種手当", "通勤手当（上限あり）", "時間外手当", "賞与（年2回）", "昇給・昇格制度あり"]
+            field: { label: "手当項目", name: "allowance", widget: "string" }
+          
+          # 仕事内容カード
+          - label: "仕事内容カード"
+            name: "job_cards"
+            widget: "list"
+            fields:
+              - { label: "タイトル", name: "title", widget: "string" }
+              - { label: "説明", name: "text", widget: "text" }
+            default:
+              - { title: "受付・問い合わせ対応", text: "お客様からのお問い合わせに丁寧に対応します。" }
+              - { title: "事務／備品管理", text: "日々の事務作業や備品の管理を担当します。" }
+              - { title: "運営サポート（調整・進行）", text: "プロジェクトの円滑な進行をサポートします。" }
+              - { title: "その他サポート業務", text: "チーム全体のサポート業務を幅広く担当します。" }
+          
+          # 勤務について
+          - label: "勤務について"
+            name: "work_info"
+            widget: "list"
+            default: ["勤務地：愛知県名古屋市中区新栄", "勤務時間：10:00〜19:00（休憩60分）", "休日：月6日（シフト制）", "週休2日相当", "有給休暇制度あり"]
+            field: { label: "勤務項目", name: "work_item", widget: "string" }
+          
+          # 福利厚生
+          - label: "福利厚生"
+            name: "welfare"
+            widget: "list"
+            default: ["社会保険完備", "賞与（年2回）", "昇給・昇格制度", "各種手当あり", "通勤手当（上限あり）", "試用期間：3か月（同条件）"]
+            field: { label: "福利厚生項目", name: "welfare_item", widget: "string" }
+          
+          # 応募について
+          - { label: "応募について（安心の締め）", name: "application_text", widget: "text", default: "「いきなり応募は不安」という方も大丈夫です。\n条件や仕事内容は、分かりやすく説明します。" }
 
   # よくある質問
   - name: "faq"

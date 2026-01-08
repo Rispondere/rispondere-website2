@@ -1,5 +1,5 @@
 /**
- * 有限会社Rispondere コーポレートサイト - メインスクリプト
+ * 有限会社Rispondere コーポレートサイト - デザイン強化版
  */
 
 (function() {
@@ -88,7 +88,7 @@
           return;
         }
         
-        // mailto:リンクで送信（実際の運用ではサーバー側の処理が必要）
+        // mailto:リンクで送信
         const subject = encodeURIComponent('【コーポレートサイト】お問い合わせ');
         const body = encodeURIComponent(
           'お名前: ' + name + '\n' +
@@ -106,31 +106,175 @@
   }
 
   /**
-   * CMSからコンテンツを読み込む
+   * CMS管理のカラーを読み込んでCSS変数に適用
    */
-  function loadCMSContent() {
-    // ページ識別
-    const path = window.location.pathname;
-    const page = path.split('/').pop().replace('.html', '') || 'index';
-    
-    // コンテンツファイルのパス
-    const contentPath = '/content/' + page + '.json';
-    
-    // コンテンツを取得
-    fetch(contentPath)
+  function loadDesignColors() {
+    fetch('/content/design-colors.json')
       .then(function(response) {
-        if (!response.ok) {
-          throw new Error('Content not found');
-        }
+        if (!response.ok) throw new Error('Design colors not found');
         return response.json();
       })
       .then(function(data) {
-        // データを適用
+        // CSS変数に適用
+        const root = document.documentElement;
+        
+        if (data.primary) root.style.setProperty('--color-primary', data.primary);
+        if (data.secondary) root.style.setProperty('--color-secondary', data.secondary);
+        if (data.bg) root.style.setProperty('--color-bg', data.bg);
+        if (data.text) root.style.setProperty('--color-text', data.text);
+        
+        // 派生カラーの自動計算（オプション）
+        if (data.primary) {
+          // 明るめの色を生成（簡易版）
+          const lightColor = lightenColor(data.primary, 0.9);
+          root.style.setProperty('--color-primary-light', lightColor);
+          
+          // 濃いめの色を生成（簡易版）
+          const darkColor = darkenColor(data.primary, 0.8);
+          root.style.setProperty('--color-primary-dark', darkColor);
+        }
+        
+        console.log('Design colors applied successfully');
+      })
+      .catch(function(error) {
+        console.log('Design colors not loaded, using defaults:', error.message);
+      });
+  }
+
+  /**
+   * 色を明るくする（簡易版）
+   */
+  function lightenColor(hex, opacity) {
+    // HEXをRGBに変換
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    
+    // 白に近づける
+    const newR = Math.round(r + (255 - r) * opacity);
+    const newG = Math.round(g + (255 - g) * opacity);
+    const newB = Math.round(b + (255 - b) * opacity);
+    
+    return '#' + 
+      newR.toString(16).padStart(2, '0') +
+      newG.toString(16).padStart(2, '0') +
+      newB.toString(16).padStart(2, '0');
+  }
+
+  /**
+   * 色を暗くする（簡易版）
+   */
+  function darkenColor(hex, factor) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    
+    const newR = Math.round(r * factor);
+    const newG = Math.round(g * factor);
+    const newB = Math.round(b * factor);
+    
+    return '#' + 
+      newR.toString(16).padStart(2, '0') +
+      newG.toString(16).padStart(2, '0') +
+      newB.toString(16).padStart(2, '0');
+  }
+
+  /**
+   * バナー画像の読み込みと表示制御
+   */
+  function loadBanners() {
+    fetch('/content/banners.json')
+      .then(function(response) {
+        if (!response.ok) throw new Error('Banners not found');
+        return response.json();
+      })
+      .then(function(data) {
+        // トップページのヒーローバナー
+        if (data.hero && data.hero.enabled && data.hero.image) {
+          const heroImg = document.querySelector('[data-cms-banner="hero"]');
+          if (heroImg) {
+            heroImg.src = data.hero.image;
+            heroImg.parentElement.style.display = 'block';
+          }
+        }
+        
+        // 採用ページのバナー
+        if (window.location.pathname.includes('recruit')) {
+          // トップバナー
+          if (data.recruit_top && data.recruit_top.enabled && data.recruit_top.image) {
+            const topBanner = document.getElementById('banner-top');
+            if (topBanner) {
+              const img = topBanner.querySelector('img');
+              if (img) {
+                img.src = data.recruit_top.image;
+                topBanner.style.display = 'block';
+              }
+            }
+          }
+          
+          // バナー1
+          if (data.recruit_banner1 && data.recruit_banner1.enabled && data.recruit_banner1.image) {
+            const banner1 = document.getElementById('banner-1');
+            if (banner1) {
+              const img = banner1.querySelector('img');
+              if (img) {
+                img.src = data.recruit_banner1.image;
+                banner1.style.display = 'block';
+              }
+            }
+          }
+          
+          // バナー2
+          if (data.recruit_banner2 && data.recruit_banner2.enabled && data.recruit_banner2.image) {
+            const banner2 = document.getElementById('banner-2');
+            if (banner2) {
+              const img = banner2.querySelector('img');
+              if (img) {
+                img.src = data.recruit_banner2.image;
+                banner2.style.display = 'block';
+              }
+            }
+          }
+          
+          // バナー3
+          if (data.recruit_banner3 && data.recruit_banner3.enabled && data.recruit_banner3.image) {
+            const banner3 = document.getElementById('banner-3');
+            if (banner3) {
+              const img = banner3.querySelector('img');
+              if (img) {
+                img.src = data.recruit_banner3.image;
+                banner3.style.display = 'block';
+              }
+            }
+          }
+        }
+        
+        console.log('Banners loaded successfully');
+      })
+      .catch(function(error) {
+        console.log('Banners not loaded:', error.message);
+      });
+  }
+
+  /**
+   * CMSからコンテンツを読み込む
+   */
+  function loadCMSContent() {
+    const path = window.location.pathname;
+    const page = path.split('/').pop().replace('.html', '') || 'index';
+    
+    const contentPath = '/content/' + page + '.json';
+    
+    fetch(contentPath)
+      .then(function(response) {
+        if (!response.ok) throw new Error('Content not found');
+        return response.json();
+      })
+      .then(function(data) {
         applyContentToPage(data, page);
       })
       .catch(function(error) {
         console.log('CMS content not loaded:', error.message);
-        // CMSコンテンツが無い場合はHTMLの内容をそのまま使用
       });
   }
 
@@ -138,10 +282,12 @@
    * ページにCMSコンテンツを適用
    */
   function applyContentToPage(data, page) {
-    // ページ別の処理
     switch(page) {
       case 'index':
         applyIndexContent(data);
+        break;
+      case 'recruit':
+        applyRecruitContent(data);
         break;
       case 'faq':
         applyFAQContent(data);
@@ -168,16 +314,29 @@
   }
 
   /**
+   * 採用ページのコンテンツ適用
+   */
+  function applyRecruitContent(data) {
+    // data-cms-recruit属性を持つ要素にコンテンツを適用
+    Object.keys(data).forEach(function(key) {
+      const element = document.querySelector('[data-cms-recruit="' + key + '"]');
+      if (element) {
+        if (typeof data[key] === 'string') {
+          element.innerHTML = data[key].replace(/\n/g, '<br>');
+        }
+      }
+    });
+  }
+
+  /**
    * FAQページのコンテンツ適用
    */
   function applyFAQContent(data) {
     if (data.faqs && Array.isArray(data.faqs)) {
       const faqContainer = document.querySelector('.faq');
       if (faqContainer) {
-        // 既存のFAQをクリア
         faqContainer.innerHTML = '';
         
-        // FAQアイテムを生成
         data.faqs.forEach(function(faq) {
           const item = document.createElement('div');
           item.className = 'faq__item';
@@ -202,7 +361,6 @@
    * デフォルトのコンテンツ適用
    */
   function applyDefaultContent(data) {
-    // テキストコンテンツの置き換え
     Object.keys(data).forEach(function(key) {
       const element = document.querySelector('[data-cms="' + key + '"]');
       if (element) {
@@ -239,19 +397,22 @@
    * 初期化
    */
   function init() {
-    // DOM読み込み完了後に実行
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function() {
         initHamburgerMenu();
         initSmoothScroll();
         initContactForm();
-        loadCMSContent();
+        loadDesignColors();      // カラー読み込み（最優先）
+        loadBanners();           // バナー読み込み
+        loadCMSContent();        // コンテンツ読み込み
         loadLogo();
       });
     } else {
       initHamburgerMenu();
       initSmoothScroll();
       initContactForm();
+      loadDesignColors();
+      loadBanners();
       loadCMSContent();
       loadLogo();
     }
