@@ -4,8 +4,10 @@
 
 有限会社Rispondere様のコーポレートサイトです。純粋なHTML/CSS/JavaScriptで構築され、Decap CMS（旧Netlify CMS）を使用した管理画面を実装しています。
 
-**バージョン**: 4.0（デザイン洗練版）  
-**最終更新**: 2026年1月8日
+**バージョン**: 5.0（管理画面完全版）  
+**最終更新**: 2026年1月8日  
+**サイトURL**: https://luminous-rabanadas-b8d3a3.netlify.app/  
+**管理画面URL**: https://luminous-rabanadas-b8d3a3.netlify.app/admin/
 
 **最新の改善**:
 - 🎨 全体デザインを有名デザイナーレベルに洗練
@@ -13,6 +15,9 @@
 - 📄 workstyle.htmlの大幅改善（カード形式、視覚的階層）
 - ✨ マイクロインタラクションとアニメーション追加
 - ♿ アクセシビリティ強化（フォーカス、コントラスト、アニメーション削減モード）
+- 🔐 **管理画面（Decap CMS）完全実装** ⭐ NEW!
+- 📱 Netlify Identity + Git Gateway 連携完了
+- 📚 完全な管理画面マニュアル作成（画像サイズ・容量ガイド付き）
 
 ---
 
@@ -262,7 +267,8 @@ git push
 - **STEP_BY_STEP_GUIDE.md** - 画像で見るステップバイステップガイド（所要時間20分）⭐
 
 ### 📖 管理画面・設定ガイド
-- **CMS_MANUAL.md** - 管理画面の詳細マニュアル（16,000文字）
+- **CMS_MANUAL.md** - 管理画面の完全マニュアル（画像サイズ・容量・圧縮ツール詳細付き）⭐ v2.0
+- **IMAGE_SIZE_GUIDE.md** - 画像サイズ・容量早見表（印刷・PDF保存推奨）⭐ NEW!
 - **ADMIN_QUICK_START.md** - 管理画面クイックスタート（5分で理解）
 - **GITHUB_OAUTH_SETUP.md** - GitHub OAuth認証設定ガイド（図解付き）
 
