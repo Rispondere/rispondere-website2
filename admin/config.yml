@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Rispondere/rispondere-website2
   branch: main
+  # GitHub Backend（完全無料）
+  # 管理画面で「Login with GitHub」をクリックしてログイン
 
 media_folder: "images"
 public_folder: "/images"
