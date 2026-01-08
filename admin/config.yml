@@ -1,9 +1,7 @@
 backend:
-  name: github
-  repo: Rispondere/rispondere-website2
-  branch: main
-  # GitHub Backend with Personal Access Token
-  # 初回ログイン時に GitHub Personal Access Token を入力してください
+  name: test-repo
+  # Test Backend: ブラウザのローカルストレージを使用
+  # 編集内容はブラウザに保存されます（GitHub には保存されません）
 
 media_folder: "images"
 public_folder: "/rispondere-website2/images"
