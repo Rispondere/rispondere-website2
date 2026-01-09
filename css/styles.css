@@ -137,7 +137,7 @@ p {
   }
 }
 
-/* ヘッダー（ロゴ拡大・採用ボタン追加）
+/* ヘッダー（プロ感強化：ロゴ拡大・ナビ最適化）
    ========================================================================== */
 .header {
   position: sticky;
@@ -146,12 +146,14 @@ p {
   border-bottom: 1px solid var(--color-border);
   z-index: 100;
   box-shadow: var(--shadow-sm);
+  height: 80px;
 }
 
 .header__inner {
   max-width: var(--width-content);
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 0 32px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -171,14 +173,14 @@ p {
 .header__nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
 }
 
 .header__nav a {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--color-text);
-  padding: 8px 16px;
+  padding: 8px 20px;
   border-radius: var(--radius-sm);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -189,15 +191,16 @@ p {
 }
 
 .header__nav a.btn--recruit {
-  background: var(--color-primary);
+  border: 2px solid var(--color-primary);
   color: var(--color-heading);
-  font-weight: 700;
-  padding: 10px 24px;
+  font-weight: 600;
+  padding: 8px 24px;
   border-radius: 50px;
 }
 
 .header__nav a.btn--recruit:hover {
-  background: var(--color-primary-dark);
+  background: var(--color-primary);
+  color: var(--color-heading);
   opacity: 1;
 }
 
@@ -221,8 +224,16 @@ p {
 
 /* スマホヘッダー */
 @media (max-width: 768px) {
+  .header {
+    height: 64px;
+  }
+  
+  .header__inner {
+    padding: 0 24px;
+  }
+  
   .header__logo img {
-    width: 180px;
+    width: 170px;
   }
   
   .header__nav {
