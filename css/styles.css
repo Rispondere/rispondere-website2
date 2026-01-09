@@ -160,14 +160,23 @@ p {
   gap: 32px;
 }
 
-.header__logo a {
+.header__logo {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
+}
+
+.header__logo a {
+  display: block;
+  line-height: 0;
 }
 
 .header__logo img {
   width: 240px;
   height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .header__nav {
@@ -226,27 +235,26 @@ p {
 @media (max-width: 768px) {
   .header {
     height: auto;
-    min-height: 60px;
+    min-height: 64px;
   }
   
   .header__inner {
-    padding: 12px 24px;
-    justify-content: center;
-    flex-wrap: wrap;
+    padding: 12px 20px;
+    gap: 16px;
+    flex-wrap: nowrap;
   }
   
   .header__logo {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 8px;
+    flex: 0 0 auto;
+    max-width: 150px;
   }
   
   .header__logo img {
     width: 150px;
-    max-width: 160px;
+    max-width: 100%;
     height: auto;
     max-height: 40px;
-    margin: 0 auto;
+    object-fit: contain;
   }
   
   .header__nav {
