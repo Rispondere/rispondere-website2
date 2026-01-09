@@ -280,7 +280,7 @@ p {
     box-shadow: var(--shadow-md);
   }
   
-  .header__nav.active {
+  .header__nav.is-open {
     display: flex;
   }
   
