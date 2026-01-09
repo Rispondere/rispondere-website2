@@ -324,6 +324,18 @@ p {
   padding: 0 24px;
 }
 
+/* ロゴ表示（ヒーローセクション用） */
+.hero__logo {
+  margin: 0 auto 48px;
+  max-width: 600px;
+}
+
+.hero__logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .hero__title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -352,12 +364,17 @@ p {
     padding: var(--spacing-section-sp) 0;
   }
   
+  .hero__logo {
+    max-width: 80%;
+    margin-bottom: 32px;
+  }
+  
   .hero__title {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
   }
   
   .hero__text {
-    font-size: 1rem;
+    font-size: 0.9375rem;
   }
   
   .hero__buttons {
