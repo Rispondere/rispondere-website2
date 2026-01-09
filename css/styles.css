@@ -161,19 +161,11 @@ p {
 .header__logo a {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
 .header__logo img {
-  width: 200px;
+  width: 240px;
   height: auto;
-}
-
-.header__logo span {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-heading);
-  letter-spacing: 0.02em;
 }
 
 .header__nav {
@@ -230,11 +222,7 @@ p {
 /* スマホヘッダー */
 @media (max-width: 768px) {
   .header__logo img {
-    width: 150px;
-  }
-  
-  .header__logo span {
-    font-size: 1.25rem;
+    width: 180px;
   }
   
   .header__nav {
