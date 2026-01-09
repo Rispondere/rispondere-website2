@@ -44,14 +44,14 @@ img {
 /* デザインシステム変数（指示書準拠）
    ========================================================================== */
 :root {
-  /* メインカラー（ミントグリーン基調） */
-  --color-primary: #4ECDC4;        /* メイン：ミントグリーン */
+  /* メインカラー（ロゴ寄せのミント） */
+  --color-primary: #67EDE1;        /* メイン：ミントグリーン */
   --color-accent: #1A535C;         /* アクセント：ダークティール */
   
   /* グレースケール */
   --color-bg: #FFFFFF;             /* 背景：白 */
-  --color-bg-light: #F9FAFB;       /* 薄いグレー背景 */
-  --color-text: #1F2937;           /* 本文：濃いグレー */
+  --color-bg-light: #F8FAFC;       /* 薄いグレー背景 */
+  --color-text: #111827;           /* 本文：濃いグレー */
   --color-text-light: #6B7280;     /* 薄いグレー文字 */
   --color-border: #E5E7EB;         /* ボーダー */
   
@@ -346,7 +346,7 @@ p {
 
 .btn--primary:hover {
   opacity: 1;
-  background-color: #3DB8AF;
+  background-color: #4DD4C8;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
@@ -804,4 +804,63 @@ p {
 
 .mb-small {
   margin-bottom: 16px;
+}
+
+/* 下部固定CTA（スマホのみ）
+   ========================================================================== */
+.fixed-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .fixed-cta {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--color-border);
+    padding: 12px 16px;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+    z-index: 50;
+  }
+  
+  .fixed-cta__btn {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    min-height: 44px;
+  }
+  
+  .fixed-cta__btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* 下部固定CTAがある場合、bodyに余白を追加 */
+  body.has-fixed-cta {
+    padding-bottom: 80px;
+  }
+}
+
+/* ボタンの最小サイズ確保（タップしやすく）
+   ========================================================================== */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 44px;
+    padding: 14px 28px;
+  }
+  
+  .btn--large {
+    min-height: 48px;
+    padding: 16px 32px;
+  }
 }
