@@ -44,9 +44,9 @@ img {
 /* デザインシステム変数（指示書準拠）
    ========================================================================== */
 :root {
-  /* メインカラー（2色のみ） */
-  --color-primary: #B1001A;        /* メイン：赤 */
-  --color-accent: #111827;         /* アクセント：濃いグレー */
+  /* メインカラー（ミントグリーン基調） */
+  --color-primary: #4ECDC4;        /* メイン：ミントグリーン */
+  --color-accent: #1A535C;         /* アクセント：ダークティール */
   
   /* グレースケール */
   --color-bg: #FFFFFF;             /* 背景：白 */
@@ -346,7 +346,7 @@ p {
 
 .btn--primary:hover {
   opacity: 1;
-  background-color: #8C0015;
+  background-color: #3DB8AF;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
@@ -484,7 +484,7 @@ p {
 /* ヒーローセクション
    ========================================================================== */
 .hero {
-  background: linear-gradient(135deg, #FFF5F7 0%, #fff 100%);
+  background: linear-gradient(135deg, #E8F8F7 0%, #fff 100%);
   padding: 64px 0;
   text-align: center;
 }
@@ -596,7 +596,7 @@ p {
    ========================================================================== */
 .recruit-section {
   padding: var(--spacing-section) 0;
-  background: linear-gradient(135deg, #FFF5F7 0%, #fff 100%);
+  background: linear-gradient(135deg, #E8F8F7 0%, #fff 100%);
 }
 
 .recruit-section__badge {
