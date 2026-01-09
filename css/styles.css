@@ -953,3 +953,50 @@ p {
     font-size: 0.9375rem;
   }
 }
+
+/* ===== スマホメニュー 強制修正 ===== */
+@media (max-width: 900px) {
+
+  .header {
+    position: relative;
+    z-index: 10000;
+  }
+
+  .header__hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10002;
+    margin-left: auto;
+  }
+
+  .header__hamburger span {
+    display: block;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 64px; /* ヘッダー高さに合わせて調整 */
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 10001;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .header__nav.is-open {
+    display: flex;
+  }
+}
