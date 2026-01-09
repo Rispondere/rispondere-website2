@@ -241,9 +241,9 @@ p {
 /* スマホヘッダー（崩れ防止・視認性UP） */
 @media (max-width: 768px) {
   .header {
+    position: relative;
     height: auto;
     min-height: 64px;
-    overflow: hidden;
   }
   
   .header__inner {
