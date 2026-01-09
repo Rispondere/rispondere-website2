@@ -26,7 +26,7 @@
         <a href="/rispondere-website2/recruit.html" >採用</a>
         <a href="/rispondere-website2/contact.html">お問い合わせ</a>
       </nav>
-      <button class="header__hamburger" aria-label="メニュー" aria-expanded="false">
+      <button class="header__hamburger" type="button" aria-label="メニュー" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -126,87 +126,54 @@
   </footer>
 
   <script>
-  // スマホメニュー - 完全版（タッチイベント対応）
-  (function() {
-    'use strict';
-    
-    function initMenu() {
-      var hamburger = document.querySelector('.header__hamburger');
-      var nav = document.querySelector('.header__nav');
-      
-      if (!hamburger || !nav) {
-        console.error('Menu elements not found');
-        return;
-      }
-      
-      console.log('Menu initialized');
-      
-      // タップ/クリック両方に対応
-      function toggleMenu(e) {
-        if (e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-        
-        var isOpen = nav.classList.contains('is-open');
-        console.log('Toggle menu, current state:', isOpen ? 'open' : 'closed');
-        
-        if (isOpen) {
-          nav.classList.remove('is-open');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        } else {
-          nav.classList.add('is-open');
-          hamburger.setAttribute('aria-expanded', 'true');
-          document.body.style.overflow = 'hidden';
-        }
-        
-        console.log('New state:', nav.classList.contains('is-open') ? 'open' : 'closed');
-      }
-      
-      // click, touchstart, touchend すべてに対応
-      hamburger.addEventListener('click', toggleMenu, { passive: false });
-      hamburger.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        toggleMenu(e);
-      }, { passive: false });
-      
-      // リンククリックでメニューを閉じる
-      var links = nav.querySelectorAll('a');
-      for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', function() {
-          nav.classList.remove('is-open');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
-      }
-      
-      // メニュー外をタップしたら閉じる
-      document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
-          if (nav.classList.contains('is-open')) {
-            nav.classList.remove('is-open');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-          }
-        }
-      });
-      
-      console.log('Menu events attached');
+(() => {
+  'use strict';
+
+  function initMenu() {
+    const hamburger = document.querySelector('.header__hamburger');
+    const nav = document.querySelector('.header__nav');
+
+    if (!hamburger || !nav) return;
+
+    // ✅ 二重初期化を防ぐ
+    if (hamburger.dataset.menuInit === '1') return;
+    hamburger.dataset.menuInit = '1';
+
+    function openMenu() {
+      nav.classList.add('is-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
-    
-    // 複数のタイミングで初期化
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initMenu);
-    } else {
-      initMenu();
+
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
-    
-    window.addEventListener('load', function() {
-      setTimeout(initMenu, 100);
+
+    function toggleMenu(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      nav.classList.contains('is-open') ? closeMenu() : openMenu();
+    }
+
+    // ✅ これ一本に統一（touchstart は外す）
+    hamburger.addEventListener('click', toggleMenu, { passive: false });
+
+    // リンクを押したら閉じる
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMenu);
     });
-  })();
+
+    // 外側タップで閉じる
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !nav.contains(e.target)) closeMenu();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initMenu);
+})();
   </script>
-  <script src="/rispondere-website2/js/main.js"></script>
+  <!-- <script src="/rispondere-website2/js/main.js"></script> -->
 </body>
 </html>
