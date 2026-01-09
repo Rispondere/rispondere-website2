@@ -330,6 +330,33 @@
     <a href="/rispondere-website2/contact.html" class="fixed-cta__btn">お問い合わせ</a>
   </div>
 
+  <script>
+  // ハンバーガーメニュー（インライン・確実実行）
+  (function(){
+    function init(){
+      var h=document.querySelector('.header__hamburger');
+      var n=document.querySelector('.header__nav');
+      if(!h||!n)return;
+      h.addEventListener('click',function(e){
+        e.preventDefault();
+        n.classList.toggle('is-open');
+        h.setAttribute('aria-expanded',n.classList.contains('is-open')?'true':'false');
+      });
+      var links=n.querySelectorAll('a');
+      for(var i=0;i<links.length;i++){
+        links[i].addEventListener('click',function(){
+          n.classList.remove('is-open');
+          h.setAttribute('aria-expanded','false');
+        });
+      }
+    }
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',init);
+    }else{
+      init();
+    }
+  })();
+  </script>
   <script src="/rispondere-website2/js/main.js"></script>
 </body>
 </html>
