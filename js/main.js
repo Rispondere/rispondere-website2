@@ -2,58 +2,62 @@
  * 有限会社Rispondere コーポレートサイト
  */
 
+// ハンバーガーメニューの初期化（即時実行・確実に動作）
 (function() {
   'use strict';
   
-  // ハンバーガーメニューの初期化
-  function initHamburgerMenu() {
-    const hamburger = document.querySelector('.header__hamburger');
-    const nav = document.querySelector('.header__nav');
+  function init() {
+    // ハンバーガーメニューの開閉
+    var hamburger = document.querySelector('.header__hamburger');
+    var nav = document.querySelector('.header__nav');
     
     if (!hamburger || !nav) {
-      console.error('Menu elements not found');
+      console.error('Hamburger or Nav not found!');
       return;
     }
     
-    // ハンバーガーメニューのクリックイベント
-    hamburger.addEventListener('click', function() {
-      const isOpen = nav.classList.contains('is-open');
+    console.log('Menu initialized successfully');
+    
+    // ハンバーガーボタンのクリック
+    hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      var isOpen = nav.classList.contains('is-open');
       
       if (isOpen) {
         nav.classList.remove('is-open');
         hamburger.setAttribute('aria-expanded', 'false');
+        console.log('Menu closed');
       } else {
         nav.classList.add('is-open');
         hamburger.setAttribute('aria-expanded', 'true');
+        console.log('Menu opened');
       }
     });
     
-    // ナビゲーションリンクをクリックしたらメニューを閉じる
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(function(link) {
-      link.addEventListener('click', function() {
+    // リンククリックでメニューを閉じる
+    var links = nav.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
         nav.classList.remove('is-open');
         hamburger.setAttribute('aria-expanded', 'false');
       });
-    });
-  }
-  
-  // スムーススクロールの初期化
-  function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
+    }
     
-    links.forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        
+    // スムーススクロール
+    var scrollLinks = document.querySelectorAll('a[href^="#"]');
+    for (var j = 0; j < scrollLinks.length; j++) {
+      scrollLinks[j].addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
         if (href === '#') return;
         
-        const target = document.querySelector(href);
+        var target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const header = document.querySelector('.header');
-          const headerHeight = header ? header.offsetHeight : 0;
-          const targetPosition = target.offsetTop - headerHeight;
+          var header = document.querySelector('.header');
+          var headerHeight = header ? header.offsetHeight : 0;
+          var targetPosition = target.offsetTop - headerHeight;
           
           window.scrollTo({
             top: targetPosition,
@@ -61,18 +65,23 @@
           });
         }
       });
-    });
+    }
   }
   
-  // DOMContentLoaded後に初期化
+  // 複数のタイミングで初期化を試みる
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      initHamburgerMenu();
-      initSmoothScroll();
-    });
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    // DOMがすでに読み込まれている場合は即座に実行
-    initHamburgerMenu();
-    initSmoothScroll();
+    init();
   }
+  
+  // 念のため、loadイベントでも実行
+  window.addEventListener('load', function() {
+    // すでに初期化済みならスキップ
+    var hamburger = document.querySelector('.header__hamburger');
+    if (hamburger && !hamburger.hasAttribute('data-initialized')) {
+      hamburger.setAttribute('data-initialized', 'true');
+      init();
+    }
+  });
 })();
