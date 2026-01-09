@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rispondere スプレッドシートデータ確認</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1 {
+      color: #1F2937;
+      border-bottom: 3px solid #67EDE1;
+      padding-bottom: 10px;
+    }
+    .info-box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th {
+      background: #67EDE1;
+      color: #1F2937;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #E5E7EB;
+    }
+    tr:hover {
+      background: #F0FDFA;
+    }
+    .key {
+      font-family: monospace;
+      color: #4FD1C5;
+      font-weight: 600;
+    }
+    .description {
+      color: #6B7280;
+      font-size: 0.9em;
+    }
+    .links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #67EDE1;
+      color: #1F2937;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      background: #4FD1C5;
+      transform: translateY(-2px);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #67EDE1;
+      color: #1F2937;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 Rispondere スプレッドシートデータ</h1>
+  
+  <div class="info-box">
+    <h2>スプレッドシート情報</h2>
+    <p><strong>スプレッドシートID:</strong> <code>1o7-qkf3FUXXfvgRXCMg0QA7ClnTps7Wt99YeNP1zTIE</code></p>
+    <p><strong>シート名:</strong> <code>settings</code></p>
+    <p><strong>データ行数:</strong> <span class="badge">32項目</span></p>
+    
+    <div class="links">
+      <a href="https://docs.google.com/spreadsheets/d/1o7-qkf3FUXXfvgRXCMg0QA7ClnTps7Wt99YeNP1zTIE/edit" class="btn" target="_blank">
+        📝 スプレッドシートを開く
+      </a>
+      <a href="spreadsheet-data.tsv" class="btn" download>
+        💾 TSVファイルをダウンロード
+      </a>
+      <a href="SPREADSHEET-README.md" class="btn" target="_blank">
+        📖 更新手順を見る
+      </a>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h2>主な更新内容（2026-01-09）</h2>
+    <ul>
+      <li>✅ ヒーローテキスト: 「止まらないデザイン運用を、仕組みでつくる。」</li>
+      <li>✅ ブランドカラー: #67EDE1（ミントグリーン）</li>
+      <li>✅ メールアドレス統一: info@rispondere.jp</li>
+      <li>✅ 公式LINE追加: @270wnwwg</li>
+      <li>✅ 採用ページ情報更新（正社員募集3ポイント）</li>
+      <li>✅ デザイナー募集停止案内追加</li>
+      <li>✅ 会社住所完全版（NPWEST 5階まで）</li>
+    </ul>
+  </div>
+
+  <h2>📋 データ一覧</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">hero_title</td>
+        <td>止まらないデザイン運用を、<br>仕組みでつくる。</td>
+        <td class="description">【トップページ】メインビジュアルのタイトル（大見出し）</td>
+      </tr>
+      <tr>
+        <td class="key">hero_text</td>
+        <td>Rispondereは、制作と運用を分けないデザイン会社です。<br>バナー・Webサイトの制作から、更新が続く状態まで整えます。</td>
+        <td class="description">【トップページ】メインビジュアルの説明文</td>
+      </tr>
+      <tr>
+        <td class="key">theme_primary</td>
+        <td>#67EDE1</td>
+        <td class="description">【全体】メインカラー（ミントグリーン）</td>
+      </tr>
+      <tr>
+        <td class="key">theme_secondary</td>
+        <td>#4FD1C5</td>
+        <td class="description">【全体】サブカラー（ミントグリーン濃）</td>
+      </tr>
+      <tr>
+        <td class="key">theme_text</td>
+        <td>#1F2937</td>
+        <td class="description">【全体】テキストの色（ダークグレー）</td>
+      </tr>
+      <tr>
+        <td class="key">service_page_title</td>
+        <td>サービス内容</td>
+        <td class="description">【サービスページ】ページタイトル</td>
+      </tr>
+      <tr>
+        <td class="key">about_page_title</td>
+        <td>会社紹介</td>
+        <td class="description">【会社紹介ページ】ページタイトル</td>
+      </tr>
+      <tr>
+        <td class="key">recruit_hero_badge</td>
+        <td>正社員募集</td>
+        <td class="description">【採用ページ】募集バッジテキスト</td>
+      </tr>
+      <tr>
+        <td class="key">recruit_hero_title</td>
+        <td>制作・運用を支える<br>「業務推進サポート」</td>
+        <td class="description">【採用ページ】ヒーローセクションのタイトル</td>
+      </tr>
+      <tr>
+        <td class="key">recruit_point1_title</td>
+        <td>腰を据えて働ける<br>正社員雇用</td>
+        <td class="description">【採用ページ】募集要項ポイント1のタイトル</td>
+      </tr>
+      <tr>
+        <td class="key">recruit_point2_title</td>
+        <td>月給・年収の目安が<br>最初から分かる</td>
+        <td class="description">【採用ページ】募集要項ポイント2のタイトル</td>
+      </tr>
+      <tr>
+        <td class="key">recruit_point3_title</td>
+        <td>成果や成長が<br>評価に反映される環境</td>
+        <td class="description">【採用ページ】募集要項ポイント3のタイトル</td>
+      </tr>
+      <tr>
+        <td class="key">recruit_designer_notice_title</td>
+        <td>デザインスタッフ募集（現在募集停止中）</td>
+        <td class="description">【採用ページ】デザイナー募集停止案内タイトル</td>
+      </tr>
+      <tr>
+        <td class="key">company_name</td>
+        <td>有限会社Rispondere</td>
+        <td class="description">【全体】会社名</td>
+      </tr>
+      <tr>
+        <td class="key">company_address</td>
+        <td>〒460-0007 愛知県名古屋市中区新栄2丁目8-22 NPWEST 5階</td>
+        <td class="description">【全体】住所（完全版）</td>
+      </tr>
+      <tr>
+        <td class="key">company_email</td>
+        <td>info@rispondere.jp</td>
+        <td class="description">【全体】メールアドレス（統一版）</td>
+      </tr>
+      <tr>
+        <td class="key">company_line_id</td>
+        <td>@270wnwwg</td>
+        <td class="description">【全体】公式LINEアカウントID</td>
+      </tr>
+      <tr>
+        <td class="key">company_line_url</td>
+        <td>https://line.me/R/ti/p/@270wnwwg</td>
+        <td class="description">【全体】公式LINEアカウントURL</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box" style="margin-top: 30px;">
+    <h2>🔄 スプレッドシートの更新方法</h2>
+    <h3>方法1: TSVファイルをコピペ（最も簡単）</h3>
+    <ol>
+      <li>上の「💾 TSVファイルをダウンロード」ボタンをクリック</li>
+      <li>ダウンロードしたファイルを開く</li>
+      <li>すべて選択してコピー（Ctrl+A → Ctrl+C）</li>
+      <li>「📝 スプレッドシートを開く」ボタンからスプレッドシートへ</li>
+      <li>A1セルに貼り付け（Ctrl+V）</li>
+    </ol>
+
+    <h3>方法2: Google Apps Script（自動更新）</h3>
+    <ol>
+      <li>「📝 スプレッドシートを開く」ボタンをクリック</li>
+      <li>メニューから「拡張機能」→「Apps Script」</li>
+      <li>「📖 更新手順を見る」にあるコードをコピー＆貼り付け</li>
+      <li>実行ボタン（▶）をクリック</li>
+    </ol>
+  </div>
+</body>
+</html>
