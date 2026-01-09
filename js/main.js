@@ -1,47 +1,44 @@
 /**
- * 有限会社Rispondere コーポレートサイト - シンプル版
+ * 有限会社Rispondere コーポレートサイト
  */
 
 (function() {
   'use strict';
-
-  /**
-   * ハンバーガーメニューの開閉
-   */
+  
+  // ハンバーガーメニューの初期化
   function initHamburgerMenu() {
     const hamburger = document.querySelector('.header__hamburger');
     const nav = document.querySelector('.header__nav');
-
-    console.log('Hamburger:', hamburger);
-    console.log('Nav:', nav);
-
-    if (hamburger && nav) {
-      hamburger.addEventListener('click', function() {
-        console.log('Hamburger clicked!');
-        nav.classList.toggle('is-open');
-        console.log('Nav classes:', nav.className);
-        
-        // アクセシビリティ対応
-        const isOpen = nav.classList.contains('is-open');
-        hamburger.setAttribute('aria-expanded', isOpen);
-      });
-
-      // ナビゲーションリンクをクリックしたらメニューを閉じる
-      const navLinks = nav.querySelectorAll('a');
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          nav.classList.remove('is-open');
-          hamburger.setAttribute('aria-expanded', false);
-        });
-      });
-    } else {
-      console.error('Hamburger or nav not found!');
+    
+    if (!hamburger || !nav) {
+      console.error('Menu elements not found');
+      return;
     }
+    
+    // ハンバーガーメニューのクリックイベント
+    hamburger.addEventListener('click', function() {
+      const isOpen = nav.classList.contains('is-open');
+      
+      if (isOpen) {
+        nav.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      } else {
+        nav.classList.add('is-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+    });
+    
+    // ナビゲーションリンクをクリックしたらメニューを閉じる
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        nav.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
-
-  /**
-   * スムーススクロール
-   */
+  
+  // スムーススクロールの初期化
   function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -54,7 +51,8 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const headerHeight = document.querySelector('.header').offsetHeight;
+          const header = document.querySelector('.header');
+          const headerHeight = header ? header.offsetHeight : 0;
           const targetPosition = target.offsetTop - headerHeight;
           
           window.scrollTo({
@@ -65,19 +63,16 @@
       });
     });
   }
-
-  /**
-   * 初期化
-   */
-  function init() {
+  
+  // DOMContentLoaded後に初期化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initHamburgerMenu();
+      initSmoothScroll();
+    });
+  } else {
+    // DOMがすでに読み込まれている場合は即座に実行
     initHamburgerMenu();
     initSmoothScroll();
-  }
-
-  // DOMContentLoaded後に実行
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
   }
 })();
