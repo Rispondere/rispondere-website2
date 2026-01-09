@@ -12,9 +12,14 @@
     const hamburger = document.querySelector('.header__hamburger');
     const nav = document.querySelector('.header__nav');
 
+    console.log('Hamburger:', hamburger);
+    console.log('Nav:', nav);
+
     if (hamburger && nav) {
       hamburger.addEventListener('click', function() {
+        console.log('Hamburger clicked!');
         nav.classList.toggle('is-open');
+        console.log('Nav classes:', nav.className);
         
         // アクセシビリティ対応
         const isOpen = nav.classList.contains('is-open');
@@ -29,6 +34,8 @@
           hamburger.setAttribute('aria-expanded', false);
         });
       });
+    } else {
+      console.error('Hamburger or nav not found!');
     }
   }
 
