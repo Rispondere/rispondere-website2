@@ -93,7 +93,7 @@
 ## 🎯 現在のサイト状態
 
 ### ✅ 動作中
-- トップページ: https://rispondere.github.io/rispondere-website2/
+- トップページ: https://rispondere.github.io/rispondere.co.jp/
 - スプレッドシートからのデータ読み込み
 - カラーテーマの反映
 - テキストの反映
@@ -142,7 +142,7 @@
 
 ### ホスティング
 - GitHub Pages（無料）
-- URL: https://rispondere.github.io/rispondere-website2/
+- URL: https://rispondere.github.io/rispondere.co.jp/
 - ビルド不要（静的HTML）
 
 ---
@@ -150,7 +150,7 @@
 ## 📸 確認依頼
 
 ### 1. サイトの動作確認
-1. トップページにアクセス: https://rispondere.github.io/rispondere-website2/
+1. トップページにアクセス: https://rispondere.github.io/rispondere.co.jp/
 2. フッターの「お問い合わせ」が1つになっているか確認
 3. スクリーンショットを送ってください
 

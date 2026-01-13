@@ -124,7 +124,7 @@
 
 1. **サイトにアクセス（2〜3分待機）**
    ```
-   https://rispondere.github.io/rispondere-website2/
+   https://rispondere.github.io/rispondere.co.jp/
    ```
 
 2. **スマホで確認**
@@ -193,7 +193,7 @@
 ## 🎯 次のステップ
 
 1. **サイトで動作確認**
-   - https://rispondere.github.io/rispondere-website2/
+   - https://rispondere.github.io/rispondere.co.jp/
    - スマホとPCの両方で確認
 
 2. **スクリーンショットを送付**
@@ -220,4 +220,4 @@
 
 **最終更新:** 2026-01-08
 **コミットハッシュ:** 81b1104
-**リポジトリ:** https://github.com/Rispondere/rispondere-website2
+**リポジトリ:** https://github.com/Rispondere/rispondere.co.jp

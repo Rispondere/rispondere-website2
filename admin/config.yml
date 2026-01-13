@@ -5,7 +5,7 @@ backend:
   # 実際の更新は HTML ファイルを直接編集します
 
 media_folder: "images"
-public_folder: "/rispondere-website2/images"
+public_folder: "/images"
 
 collections:
   # デザイン設定

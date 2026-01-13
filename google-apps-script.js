@@ -18,7 +18,7 @@ function updateRispondereSettings() {
     ['key', 'value', 'description'],
     ['hero_title', '止まらないデザイン運用を、<br>仕組みでつくる。', '【トップページ】メインビジュアルのタイトル（大見出し）'],
     ['hero_text', 'Rispondereは、制作と運用を分けないデザイン会社です。<br>バナー・Webサイトの制作から、更新が続く状態まで整えます。', '【トップページ】メインビジュアルの説明文'],
-    ['hero_bg', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】メインビジュアルの背景画像URL'],
+    ['hero_bg', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】メインビジュアルの背景画像URL'],
     ['hero_btn1_text', '採用を見る', '【トップページ】ヒーローセクション ボタン1'],
     ['hero_btn2_text', 'お問い合わせ', '【トップページ】ヒーローセクション ボタン2'],
     ['about_section_title', 'Rispondereができること', '【トップページ】できることセクションのタイトル'],
@@ -112,10 +112,10 @@ function updateRispondereSettings() {
     ['company_business', '広告・Web・販促物の制作、運用サポート', '【全体】事業内容'],
     ['company_line_id', '@270wnwwg', '【全体】公式LINEアカウントID'],
     ['company_line_url', 'https://line.me/R/ti/p/@270wnwwg', '【全体】公式LINEアカウントURL'],
-    ['logo_url', 'https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo-final.png', '【全体】ロゴ画像URL（最終版）'],
-    ['works_image1', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】制作実績画像1（バナー制作）'],
-    ['works_image2', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】制作実績画像2（Webサイト制作）'],
-    ['works_image3', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】制作実績画像3（広告素材制作）'],
+    ['logo_url', 'https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo-final.png', '【全体】ロゴ画像URL（最終版）'],
+    ['works_image1', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像1（バナー制作）'],
+    ['works_image2', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像2（Webサイト制作）'],
+    ['works_image3', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像3（広告素材制作）'],
     ['meta_title', '有限会社Rispondere｜デザインを、止めない。', '【全体】サイトタイトル（SEO）'],
     ['meta_description', 'Rispondere（リスポンドレ）は、広告・Web・販促物の制作を行うデザイン会社です。「作って終わり」ではなく、更新しやすく、運用し続けられるデザインを大切にしています。', '【全体】サイト説明（SEO）'],
     ['footer_copyright', '有限会社Rispondere All Rights Reserved.', '【全体】フッター コピーライト'],
@@ -163,7 +163,7 @@ function updateRispondereSettings() {
   // 完了メッセージ
   Logger.log('\n✅ Rispondereサイトデータの更新が完了しました！');
   Logger.log('📊 更新データ: ' + (data.length - 1) + '項目');
-  Logger.log('🔗 サイトURL: https://rispondere.github.io/rispondere-website2/');
+  Logger.log('🔗 サイトURL: https://rispondere.github.io/rispondere.co.jp/');
   
   // ユーザーに通知
   SpreadsheetApp.getUi().alert(
@@ -210,7 +210,7 @@ function showVersionInfo() {
     '• お問い合わせページ対応\n' +
     '• 会社情報・ナビゲーション対応\n\n' +
     '🌐 サイトURL:\n' +
-    'https://rispondere.github.io/rispondere-website2/\n\n' +
+    'https://rispondere.github.io/rispondere.co.jp/\n\n' +
     '💬 お問い合わせ:\n' +
     '公式LINE: @270wnwwg\n' +
     'メール: info@rispondere.jp',

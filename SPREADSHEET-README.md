@@ -63,7 +63,7 @@ Rispondereコーポレートサイトのテキスト・設定を、Googleスプ�
    メニュー → 「拡張機能」 → 「Apps Script」
 
 3. **コードをコピー＆貼り付け**  
-   - GitHubから `google-apps-script.js` を開く: https://github.com/Rispondere/rispondere-website2/blob/main/google-apps-script.js
+   - GitHubから `google-apps-script.js` を開く: https://github.com/Rispondere/rispondere.co.jp/blob/main/google-apps-script.js
    - 全てのコードをコピー
    - Apps Scriptエディタに貼り付け（既存コードを削除してから）
 
@@ -146,8 +146,8 @@ Rispondereコーポレートサイトのテキスト・設定を、Googleスプ�
 - **SPREADSHEET-README.md** - このファイル
 
 ### オンラインアクセス
-- **GitHubリポジトリ**: https://github.com/Rispondere/rispondere-website2
-- **Google Apps Scriptコード**: https://github.com/Rispondere/rispondere-website2/blob/main/google-apps-script.js
+- **GitHubリポジトリ**: https://github.com/Rispondere/rispondere.co.jp
+- **Google Apps Scriptコード**: https://github.com/Rispondere/rispondere.co.jp/blob/main/google-apps-script.js
 - **スプレッドシート**: https://docs.google.com/spreadsheets/d/1o7-qkf3FUXXfvgRXCMg0QA7ClnTps7Wt99YeNP1zTIE/edit
 
 ---
@@ -177,7 +177,7 @@ Rispondereコーポレートサイトのテキスト・設定を、Googleスプ�
 
 ### 画像URLの指定
 - GitHub Pages のURL形式を使用
-- 例: `https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo-final.png`
+- 例: `https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo-final.png`
 
 ### カラーコードの指定
 - 16進数カラーコード（#から始まる6桁）
@@ -202,7 +202,7 @@ Rispondereコーポレートサイトのテキスト・設定を、Googleスプ�
 
 - **公式LINE**: @270wnwwg
 - **メール**: info@rispondere.jp
-- **サイト**: https://rispondere.github.io/rispondere-website2/
+- **サイト**: https://rispondere.github.io/rispondere.co.jp/
 
 ---
 

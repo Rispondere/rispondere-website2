@@ -22,7 +22,7 @@
 | postal_code | 〒460-0007 | 郵便番号 |
 | contact_redirect | /contact.html?success=true | 問い合わせ送信後のリダイレクト先 |
 | ga4_measurement_id | G-XXXXXXXXXX | GA4計測ID（後で設定） |
-| logo_url | https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo.svg | ロゴ画像URL |
+| logo_url | https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo.svg | ロゴ画像URL |
 
 ---
 
@@ -30,7 +30,7 @@
 
 | section_id | title | body | image_url | cta_text | cta_url | order | visible |
 |------------|-------|------|-----------|----------|---------|-------|---------|
-| hero | 広告・Webを通じて、<br>クライアントの運営を支える。 | 有限会社Rispondereは、<br>広告・Web・販促物の制作を行うデザイン会社です。<br><br>バナー制作や画像編集、Webまわりのサポートを中心に、<br>実務に即した制作・運用支援を行っています。 | https://rispondere.github.io/rispondere-website2/images/placeholder.svg | 事業内容を見る | /rispondere-website2/service.html | 1 | TRUE |
+| hero | 広告・Webを通じて、<br>クライアントの運営を支える。 | 有限会社Rispondereは、<br>広告・Web・販促物の制作を行うデザイン会社です。<br><br>バナー制作や画像編集、Webまわりのサポートを中心に、<br>実務に即した制作・運用支援を行っています。 | https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg | 事業内容を見る | /rispondere.co.jp/service.html | 1 | TRUE |
 | reason1 | 運用前提 | 作って終わりではなく、更新・改善しやすい形を重視します。 |  |  |  | 2 | TRUE |
 | reason2 | スピード | 依頼の意図を外さず、やり取りコストを減らします。 |  |  |  | 3 | TRUE |
 | reason3 | 仕組み化 | 現場が迷わないように、情報を整えて渡します。 |  |  |  | 4 | TRUE |
@@ -70,11 +70,11 @@
 
 | id | page | image_url | link_url | alt | order | visible |
 |----|------|-----------|----------|-----|-------|---------|
-| 1 | top | https://rispondere.github.io/rispondere-website2/images/placeholder.svg | /rispondere-website2/recruit.html | トップページヒーローバナー | 1 | TRUE |
-| 2 | recruit | https://rispondere.github.io/rispondere-website2/images/placeholder.svg |  | 採用ページヒーローバナー | 1 | TRUE |
-| 3 | recruit_gallery1 | https://rispondere.github.io/rispondere-website2/images/placeholder.svg |  | 制作実績1 | 1 | TRUE |
-| 4 | recruit_gallery2 | https://rispondere.github.io/rispondere-website2/images/placeholder.svg |  | 制作実績2 | 2 | TRUE |
-| 5 | recruit_gallery3 | https://rispondere.github.io/rispondere-website2/images/placeholder.svg |  | 制作実績3 | 3 | TRUE |
+| 1 | top | https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg | /rispondere.co.jp/recruit.html | トップページヒーローバナー | 1 | TRUE |
+| 2 | recruit | https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg |  | 採用ページヒーローバナー | 1 | TRUE |
+| 3 | recruit_gallery1 | https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg |  | 制作実績1 | 1 | TRUE |
+| 4 | recruit_gallery2 | https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg |  | 制作実績2 | 2 | TRUE |
+| 5 | recruit_gallery3 | https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg |  | 制作実績3 | 3 | TRUE |
 
 ---
 
@@ -137,7 +137,7 @@ function setupSiteSettings(ss) {
     ['postal_code', '〒460-0007', '郵便番号'],
     ['contact_redirect', '/contact.html?success=true', '問い合わせ送信後のリダイレクト先'],
     ['ga4_measurement_id', 'G-XXXXXXXXXX', 'GA4計測ID（後で設定）'],
-    ['logo_url', 'https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo.svg', 'ロゴ画像URL']
+    ['logo_url', 'https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo.svg', 'ロゴ画像URL']
   ];
   sheet.getRange(1, 1, data.length, 3).setValues(data);
   sheet.getRange(1, 1, 1, 3).setFontWeight('bold');
@@ -148,7 +148,7 @@ function setupTopSections(ss) {
   const sheet = ss.insertSheet('top_sections');
   const data = [
     ['section_id', 'title', 'body', 'image_url', 'cta_text', 'cta_url', 'order', 'visible'],
-    ['hero', '広告・Webを通じて、<br>クライアントの運営を支える。', '有限会社Rispondereは、<br>広告・Web・販促物の制作を行うデザイン会社です。<br><br>バナー制作や画像編集、Webまわりのサポートを中心に、<br>実務に即した制作・運用支援を行っています。', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '事業内容を見る', '/rispondere-website2/service.html', 1, 'TRUE'],
+    ['hero', '広告・Webを通じて、<br>クライアントの運営を支える。', '有限会社Rispondereは、<br>広告・Web・販促物の制作を行うデザイン会社です。<br><br>バナー制作や画像編集、Webまわりのサポートを中心に、<br>実務に即した制作・運用支援を行っています。', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '事業内容を見る', '/rispondere.co.jp/service.html', 1, 'TRUE'],
     ['reason1', '運用前提', '作って終わりではなく、更新・改善しやすい形を重視します。', '', '', '', 2, 'TRUE'],
     ['reason2', 'スピード', '依頼の意図を外さず、やり取りコストを減らします。', '', '', '', 3, 'TRUE'],
     ['reason3', '仕組み化', '現場が迷わないように、情報を整えて渡します。', '', '', '', 4, 'TRUE']
@@ -200,11 +200,11 @@ function setupBanners(ss) {
   const sheet = ss.insertSheet('banners');
   const data = [
     ['id', 'page', 'image_url', 'link_url', 'alt', 'order', 'visible'],
-    [1, 'top', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '/rispondere-website2/recruit.html', 'トップページヒーローバナー', 1, 'TRUE'],
-    [2, 'recruit', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '', '採用ページヒーローバナー', 1, 'TRUE'],
-    [3, 'recruit_gallery1', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '', '制作実績1', 1, 'TRUE'],
-    [4, 'recruit_gallery2', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '', '制作実績2', 2, 'TRUE'],
-    [5, 'recruit_gallery3', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '', '制作実績3', 3, 'TRUE']
+    [1, 'top', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '/rispondere.co.jp/recruit.html', 'トップページヒーローバナー', 1, 'TRUE'],
+    [2, 'recruit', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '', '採用ページヒーローバナー', 1, 'TRUE'],
+    [3, 'recruit_gallery1', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '', '制作実績1', 1, 'TRUE'],
+    [4, 'recruit_gallery2', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '', '制作実績2', 2, 'TRUE'],
+    [5, 'recruit_gallery3', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '', '制作実績3', 3, 'TRUE']
   ];
   sheet.getRange(1, 1, data.length, 7).setValues(data);
   sheet.getRange(1, 1, 1, 7).setFontWeight('bold');

@@ -93,7 +93,7 @@ for file in service.html about.html recruit.html contact.html; do
     if grep -q "<script>" "$file"; then
       # 最後の<script>タグの前に新しいスクリプトを挿入（既存を削除）
       sed -i '/<script>/,/<\/script>/{/<script>/!{/<\/script>/!d;};}' "$file"
-      sed -i "s|  <script src=\"/rispondere-website2/js/main.js\"></script>|$NEW_SCRIPT\n  <script src=\"/rispondere-website2/js/main.js\"></script>|" "$file"
+      sed -i "s|  <script src=\"/js/main.js\"></script>|$NEW_SCRIPT\n  <script src=\"/js/main.js\"></script>|" "$file"
     fi
   fi
 done

@@ -11,7 +11,7 @@ const settings = [
   ['key', 'value', 'description'],
   ['hero_title', '止まらないデザイン運用を、<br>仕組みでつくる。', '【トップページ】メインビジュアルのタイトル（大見出し）'],
   ['hero_text', 'Rispondereは、制作と運用を分けないデザイン会社です。<br>バナー・Webサイトの制作から、更新が続く状態まで整えます。', '【トップページ】メインビジュアルの説明文'],
-  ['hero_bg', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】メインビジュアルの背景画像URL'],
+  ['hero_bg', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】メインビジュアルの背景画像URL'],
   ['theme_primary', '#67EDE1', '【全体】メインカラー（ミントグリーン）'],
   ['theme_secondary', '#4FD1C5', '【全体】サブカラー（ミントグリーン濃）'],
   ['theme_text', '#1F2937', '【全体】テキストの色（ダークグレー）'],
@@ -37,10 +37,10 @@ const settings = [
   ['company_email', 'info@rispondere.jp', '【全体】メールアドレス（統一版）'],
   ['company_line_id', '@270wnwwg', '【全体】公式LINEアカウントID'],
   ['company_line_url', 'https://line.me/R/ti/p/@270wnwwg', '【全体】公式LINEアカウントURL'],
-  ['logo_url', 'https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo-final.png', '【全体】ロゴ画像URL（最終版）'],
-  ['works_image1', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】制作実績画像1（バナー制作）'],
-  ['works_image2', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】制作実績画像2（Webサイト制作）'],
-  ['works_image3', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】制作実績画像3（広告素材制作）']
+  ['logo_url', 'https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo-final.png', '【全体】ロゴ画像URL（最終版）'],
+  ['works_image1', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像1（バナー制作）'],
+  ['works_image2', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像2（Webサイト制作）'],
+  ['works_image3', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像3（広告素材制作）']
 ];
 
 async function updateSpreadsheet() {

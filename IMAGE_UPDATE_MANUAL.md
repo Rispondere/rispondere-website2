@@ -52,7 +52,7 @@
 
 #### ステップ1：GitHubリポジトリにアクセス
 ```
-https://github.com/Rispondere/rispondere-website2
+https://github.com/Rispondere/rispondere.co.jp
 ```
 
 #### ステップ2：画像をアップロード
@@ -68,23 +68,23 @@ https://github.com/Rispondere/rispondere-website2
 ##### トップページ（index.html）
 ```html
 <!-- 118行目付近 -->
-<img src="https://rispondere.github.io/rispondere-website2/images/logo/サイトサンプル_バンフレット.jpg" ...>
-<img src="https://rispondere.github.io/rispondere-website2/images/logo/サイトサンプル_求人バナー.jpg" ...>
-<img src="https://rispondere.github.io/rispondere-website2/images/logo/サイトサンプル_印刷物.jpg" ...>
+<img src="https://rispondere.github.io/rispondere.co.jp/images/logo/サイトサンプル_バンフレット.jpg" ...>
+<img src="https://rispondere.github.io/rispondere.co.jp/images/logo/サイトサンプル_求人バナー.jpg" ...>
+<img src="https://rispondere.github.io/rispondere.co.jp/images/logo/サイトサンプル_印刷物.jpg" ...>
 ```
 
 ##### サービスページ（service.html）
 ```html
 <!-- 120行目、129行目、138行目付近 -->
-<img src="https://rispondere.github.io/rispondere-website2/images/logo/サイトサンプル_バンフレット.jpg" ...>
-<img src="https://rispondere.github.io/rispondere-website2/images/logo/サイトサンプル_求人バナー.jpg" ...>
-<img src="https://rispondere.github.io/rispondere-website2/images/logo/サイトサンプル_印刷物.jpg" ...>
+<img src="https://rispondere.github.io/rispondere.co.jp/images/logo/サイトサンプル_バンフレット.jpg" ...>
+<img src="https://rispondere.github.io/rispondere.co.jp/images/logo/サイトサンプル_求人バナー.jpg" ...>
+<img src="https://rispondere.github.io/rispondere.co.jp/images/logo/サイトサンプル_印刷物.jpg" ...>
 ```
 
 #### ステップ4：確認
 変更後、以下のURLで表示を確認してください：
-- トップページ：https://rispondere.github.io/rispondere-website2/
-- サービスページ：https://rispondere.github.io/rispondere-website2/service.html
+- トップページ：https://rispondere.github.io/rispondere.co.jp/
+- サービスページ：https://rispondere.github.io/rispondere.co.jp/service.html
 
 ---
 
@@ -92,8 +92,8 @@ https://github.com/Rispondere/rispondere-website2
 
 #### ステップ1：リポジトリをクローン
 ```bash
-git clone https://github.com/Rispondere/rispondere-website2.git
-cd rispondere-website2
+git clone https://github.com/Rispondere/rispondere.co.jp.git
+cd rispondere.co.jp
 ```
 
 #### ステップ2：画像を配置
@@ -164,7 +164,7 @@ git push origin main
    - HTMLに記載されているファイル名と、実際のファイル名が一致しているか
    
 2. **画像のパスを確認**
-   - `https://rispondere.github.io/rispondere-website2/images/logo/ファイル名.jpg`
+   - `https://rispondere.github.io/rispondere.co.jp/images/logo/ファイル名.jpg`
    - パスが正しいか、大文字・小文字も含めて確認
 
 3. **キャッシュをクリア**
@@ -189,8 +189,8 @@ git push origin main
 
 - **公式LINE**: [@270wnwwg](https://line.me/R/ti/p/@270wnwwg)
 - **メール**: info@rispondere.jp
-- **サイトURL**: https://rispondere.github.io/rispondere-website2/
-- **GitHubリポジトリ**: https://github.com/Rispondere/rispondere-website2
+- **サイトURL**: https://rispondere.github.io/rispondere.co.jp/
+- **GitHubリポジトリ**: https://github.com/Rispondere/rispondere.co.jp
 
 ---
 

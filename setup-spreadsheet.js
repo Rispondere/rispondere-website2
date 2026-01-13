@@ -20,7 +20,7 @@ const settings = [
   },
   {
     key: 'hero_bg',
-    value: 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg',
+    value: 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg',
     description: '【トップページ】メインビジュアルの背景画像URL'
   },
   {
@@ -105,17 +105,17 @@ const settings = [
   },
   {
     key: 'works_image1',
-    value: 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg',
+    value: 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg',
     description: '【トップページ】制作実績ギャラリー画像1'
   },
   {
     key: 'works_image2',
-    value: 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg',
+    value: 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg',
     description: '【トップページ】制作実績ギャラリー画像2'
   },
   {
     key: 'works_image3',
-    value: 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg',
+    value: 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg',
     description: '【トップページ】制作実績ギャラリー画像3'
   },
   {
@@ -140,7 +140,7 @@ const settings = [
   },
   {
     key: 'logo_url',
-    value: 'https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo.svg',
+    value: 'https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo.svg',
     description: '【全体】ロゴ画像URL'
   }
 ];

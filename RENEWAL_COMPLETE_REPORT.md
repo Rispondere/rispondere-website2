@@ -139,7 +139,7 @@
 
 ### サイトにアクセス（2〜3分待機）
 ```
-https://rispondere.github.io/rispondere-website2/
+https://rispondere.github.io/rispondere.co.jp/
 ```
 
 ### 確認ポイント
@@ -183,7 +183,7 @@ https://rispondere.github.io/rispondere-website2/
 ## 📞 次のステップ
 
 1. **サイト確認**
-   - https://rispondere.github.io/rispondere-website2/
+   - https://rispondere.github.io/rispondere.co.jp/
    - スクリーンショットを送付
 
 2. **問題があれば報告**
@@ -199,7 +199,7 @@ https://rispondere.github.io/rispondere-website2/
 ---
 
 **コミットハッシュ:** 150ff7a  
-**リポジトリ:** https://github.com/Rispondere/rispondere-website2  
+**リポジトリ:** https://github.com/Rispondere/rispondere.co.jp  
 **最終更新:** 2026-01-08
 
 ---

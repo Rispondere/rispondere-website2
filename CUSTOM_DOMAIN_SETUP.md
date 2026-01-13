@@ -4,7 +4,7 @@
 GitHub Pagesで公開中の Rispondere コーポレートサイトを、独自ドメイン `rispondere.co.jp` に接続する手順を説明します。
 
 **現在のURL:**  
-`https://rispondere.github.io/rispondere-website2/`
+`https://rispondere.github.io/rispondere.co.jp/`
 
 **設定後のURL:**  
 `https://rispondere.co.jp`
@@ -30,7 +30,7 @@ rispondere.co.jp
 ```
 
 **確認URL:**  
-https://github.com/Rispondere/rispondere-website2/blob/main/CNAME
+https://github.com/Rispondere/rispondere.co.jp/blob/main/CNAME
 
 ---
 
@@ -40,7 +40,7 @@ https://github.com/Rispondere/rispondere-website2/blob/main/CNAME
 
 #### 1. GitHubリポジトリの設定画面を開く
 ```
-https://github.com/Rispondere/rispondere-website2/settings/pages
+https://github.com/Rispondere/rispondere.co.jp/settings/pages
 ```
 
 #### 2. Custom domain セクションを見つける
@@ -156,7 +156,7 @@ Address: 185.199.111.153
 
 #### 1. GitHub Pages 設定画面に戻る
 ```
-https://github.com/Rispondere/rispondere-website2/settings/pages
+https://github.com/Rispondere/rispondere.co.jp/settings/pages
 ```
 
 #### 2. DNS チェックの成功を確認
@@ -255,12 +255,12 @@ https://github.com/Rispondere/rispondere-website2/settings/pages
 ## 🎯 設定後の注意事項
 
 ### サイト内のURLについて
-現在のサイトは `/rispondere-website2/` というパスを使用していますが、独自ドメインでは **ルートディレクトリ** として公開されます。
+現在のサイトは `/rispondere.co.jp/` というパスを使用していますが、独自ドメインでは **ルートディレクトリ** として公開されます。
 
 **変更の必要はありません。** GitHub Pagesが自動的に処理します。
 
 ### 旧URLからのリダイレクト
-旧URL `https://rispondere.github.io/rispondere-website2/` も引き続きアクセス可能です。
+旧URL `https://rispondere.github.io/rispondere.co.jp/` も引き続きアクセス可能です。
 
 必要に応じて、GitHub Pages の設定で自動リダイレクトを有効にできます。
 
@@ -272,7 +272,7 @@ https://github.com/Rispondere/rispondere-website2/settings/pages
 
 - **公式LINE**: [@270wnwwg](https://line.me/R/ti/p/@270wnwwg)
 - **メール**: info@rispondere.jp
-- **GitHub リポジトリ**: https://github.com/Rispondere/rispondere-website2
+- **GitHub リポジトリ**: https://github.com/Rispondere/rispondere.co.jp
 
 ---
 
