@@ -188,7 +188,7 @@ git push origin main
 画像変更でお困りの場合は、お気軽にお問い合わせください。
 
 - **公式LINE**: [@270wnwwg](https://line.me/R/ti/p/@270wnwwg)
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **サイトURL**: https://rispondere.github.io/rispondere.co.jp/
 - **GitHubリポジトリ**: https://github.com/Rispondere/rispondere.co.jp
 

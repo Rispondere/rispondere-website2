@@ -501,7 +501,7 @@ git push origin main
 サイトに関するご質問・ご要望は、以下からお問い合わせください：
 
 - **お問い合わせフォーム**: https://YOUR-SITE.com/contact.html
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **管理画面**: https://YOUR-SITE.com/admin/
 
 ---

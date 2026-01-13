@@ -319,7 +319,7 @@ https://YOUR-SITE.com/admin/
 
 サイトに関するご質問・ご要望は、以下からお問い合わせください：
 
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **お問い合わせフォーム**: https://YOUR-SITE.com/contact.html
 - **管理画面**: https://YOUR-SITE.com/admin/
 

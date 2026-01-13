@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
 GA4の動作確認でご不明な点があれば、以下までお問い合わせください：
 
 - **公式LINE**: [@270wnwwg](https://line.me/R/ti/p/@270wnwwg)
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **サイト**: https://rispondere.co.jp/
 - **GitHub**: https://github.com/Rispondere/rispondere-website2
 

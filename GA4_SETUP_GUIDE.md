@@ -322,7 +322,7 @@ GA4の利用について、プライバシーポリシーに記載を追加
 GA4の導入でお困りの場合は、お気軽にお問い合わせください。
 
 - **公式LINE**: [@270wnwwg](https://line.me/R/ti/p/@270wnwwg)
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **サイトURL**: https://rispondere.co.jp/
 - **GitHubリポジトリ**: https://github.com/Rispondere/rispondere-website2
 

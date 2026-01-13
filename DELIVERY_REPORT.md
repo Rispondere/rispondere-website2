@@ -228,7 +228,7 @@ https://[USERNAME].github.io/[REPO_NAME]/admin/
 愛知県名古屋市中区新栄2丁目8-22 NPWEST 5階
 
 **お問い合わせ**  
-メール: info@rispondere.jp  
+メール: info@rispondere.co.jp  
 担当: 川満
 
 ---

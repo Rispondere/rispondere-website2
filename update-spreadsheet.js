@@ -34,7 +34,7 @@ const settings = [
   ['company_name', '有限会社Rispondere', '【全体】会社名'],
   ['company_address', '〒460-0007 愛知県名古屋市中区新栄2丁目8-22 NPWEST 5階', '【全体】住所（完全版）'],
   ['company_contact', '担当：川満', '【全体】担当者名'],
-  ['company_email', 'info@rispondere.jp', '【全体】メールアドレス（統一版）'],
+  ['company_email', 'info@rispondere.co.jp', '【全体】メールアドレス（統一版）'],
   ['company_line_id', '@270wnwwg', '【全体】公式LINEアカウントID'],
   ['company_line_url', 'https://line.me/R/ti/p/@270wnwwg', '【全体】公式LINEアカウントURL'],
   ['logo_url', 'https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo-final.png', '【全体】ロゴ画像URL（最終版）'],
@@ -52,7 +52,7 @@ async function updateSpreadsheet() {
   console.log('=== 主な更新内容 ===');
   console.log('✅ ヒーローテキスト: 「止まらないデザイン運用を、仕組みでつくる。」');
   console.log('✅ メインカラー: #67EDE1（ミントグリーン）');
-  console.log('✅ メールアドレス統一: info@rispondere.jp');
+  console.log('✅ メールアドレス統一: info@rispondere.co.jp');
   console.log('✅ 公式LINE追加: @270wnwwg');
   console.log('✅ 採用ページ情報更新');
   console.log('✅ デザイナー募集停止案内追加');

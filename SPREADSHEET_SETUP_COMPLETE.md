@@ -16,7 +16,7 @@
 | text_color | #1a1a1a | テキストの色 |
 | bg_color | #ffffff | 背景色 |
 | phone | 052-253-5385 | 電話番号 |
-| email_public | info@rispondere.jp | 公開用メールアドレス |
+| email_public | info@rispondere.co.jp | 公開用メールアドレス |
 | email_contact | rispo.manager@nagopre.com | 問い合わせ受信先（非公開） |
 | address | 愛知県名古屋市中区新栄2丁目8-22 NPWEST5階 | 住所 |
 | postal_code | 〒460-0007 | 郵便番号 |
@@ -131,7 +131,7 @@ function setupSiteSettings(ss) {
     ['text_color', '#1a1a1a', 'テキストの色'],
     ['bg_color', '#ffffff', '背景色'],
     ['phone', '052-253-5385', '電話番号'],
-    ['email_public', 'info@rispondere.jp', '公開用メールアドレス'],
+    ['email_public', 'info@rispondere.co.jp', '公開用メールアドレス'],
     ['email_contact', 'rispo.manager@nagopre.com', '問い合わせ受信先（非公開）'],
     ['address', '愛知県名古屋市中区新栄2丁目8-22 NPWEST5階', '住所'],
     ['postal_code', '〒460-0007', '郵便番号'],

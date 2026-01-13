@@ -271,7 +271,7 @@ https://github.com/Rispondere/rispondere.co.jp/settings/pages
 設定でお困りの場合は、お気軽にお問い合わせください。
 
 - **公式LINE**: [@270wnwwg](https://line.me/R/ti/p/@270wnwwg)
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **GitHub リポジトリ**: https://github.com/Rispondere/rispondere.co.jp
 
 ---

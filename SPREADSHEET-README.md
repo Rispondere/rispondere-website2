@@ -201,7 +201,7 @@ Rispondereコーポレートサイトのテキスト・設定を、Googleスプ�
 ## 📞 お問い合わせ
 
 - **公式LINE**: @270wnwwg
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **サイト**: https://rispondere.github.io/rispondere.co.jp/
 
 ---

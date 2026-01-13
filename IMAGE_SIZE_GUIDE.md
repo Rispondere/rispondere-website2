@@ -227,7 +227,7 @@
 
 1. **このガイドを印刷**して手元に置く
 2. **CMS_MANUAL.md** で詳しい手順を確認
-3. **サイト管理者** に連絡: info@rispondere.jp
+3. **サイト管理者** に連絡: info@rispondere.co.jp
 
 ---
 

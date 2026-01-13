@@ -260,7 +260,7 @@ Google に企業情報を伝えるため、構造化データ（JSON-LD）の追
     "@type": "ContactPoint",
     "telephone": "+81-52-253-5385",
     "contactType": "customer service",
-    "email": "info@rispondere.jp"
+    "email": "info@rispondere.co.jp"
   },
   "address": {
     "@type": "PostalAddress",
@@ -310,7 +310,7 @@ Google に企業情報を伝えるため、構造化データ（JSON-LD）の追
 Google Search Consoleの設定でお困りの場合は、お気軽にお問い合わせください。
 
 - **公式LINE**: [@270wnwwg](https://line.me/R/ti/p/@270wnwwg)
-- **メール**: info@rispondere.jp
+- **メール**: info@rispondere.co.jp
 - **サイトURL**: https://rispondere.co.jp/
 - **GitHubリポジトリ**: https://github.com/Rispondere/rispondere-website2
 

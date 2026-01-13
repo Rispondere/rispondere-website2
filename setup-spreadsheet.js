@@ -135,7 +135,7 @@ const settings = [
   },
   {
     key: 'company_email',
-    value: 'info@rispondere.jp',
+    value: 'info@rispondere.co.jp',
     description: '【全体】メールアドレス'
   },
   {

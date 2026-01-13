@@ -112,7 +112,7 @@ function updateRispondereSettings() {
     ['company_address', '〒460-0007 愛知県名古屋市中区新栄2丁目8-22 NPWEST 5階', '【全体】住所（完全版）'],
     ['company_tel', '052-253-5385', '【全体】電話番号'],
     ['company_contact', '担当：川満', '【全体】担当者名'],
-    ['company_email', 'info@rispondere.jp', '【全体】メールアドレス（統一版）'],
+    ['company_email', 'info@rispondere.co.jp', '【全体】メールアドレス（統一版）'],
     ['company_business', '広告・Web・販促物の制作、運用サポート', '【全体】事業内容'],
     ['company_line_id', '@270wnwwg', '【全体】公式LINEアカウントID'],
     ['company_line_url', 'https://line.me/R/ti/p/@270wnwwg', '【全体】公式LINEアカウントURL'],
@@ -222,7 +222,7 @@ function showVersionInfo() {
     'https://rispondere.co.jp/\n\n' +
     '💬 お問い合わせ:\n' +
     '公式LINE: @270wnwwg\n' +
-    'メール: info@rispondere.jp',
+    'メール: info@rispondere.co.jp',
     SpreadsheetApp.getUi().ButtonSet.OK
   );
 }
