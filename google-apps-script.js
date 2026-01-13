@@ -13,12 +13,12 @@
 function updateRispondereSettings() {
   const SHEET_NAME = 'settings';
   
-  // 最新のサイトデータ（108項目）
+  // 最新のサイトデータ（114項目）
   const data = [
     ['key', 'value', 'description'],
     ['hero_title', '止まらないデザイン運用を、<br>仕組みでつくる。', '【トップページ】メインビジュアルのタイトル（大見出し）'],
     ['hero_text', 'Rispondereは、制作と運用を分けないデザイン会社です。<br>バナー・Webサイトの制作から、更新が続く状態まで整えます。', '【トップページ】メインビジュアルの説明文'],
-    ['hero_bg', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】メインビジュアルの背景画像URL'],
+    ['hero_bg', 'https://rispondere.github.io/rispondere-website2/images/placeholder.svg', '【トップページ】メインビジュアルの背景画像URL'],
     ['hero_btn1_text', '採用を見る', '【トップページ】ヒーローセクション ボタン1'],
     ['hero_btn2_text', 'お問い合わせ', '【トップページ】ヒーローセクション ボタン2'],
     ['about_section_title', 'Rispondereができること', '【トップページ】できることセクションのタイトル'],
@@ -31,16 +31,16 @@ function updateRispondereSettings() {
     ['about_card3_text', 'マニュアル、管理表、テンプレートで、<br>更新が止まらない状態をつくる。', '【トップページ】できることカード3の説明'],
     ['works_section_title', '制作実績（Works）', '【トップページ】制作実績セクションのタイトル'],
     ['works_section_lead', '守秘の都合により、掲載できる範囲で一部加工したサンプルです。', '【トップページ】制作実績セクションのリード文'],
-    ['works_card1_title', '採用バナー（告知用）', '【トップページ】制作実績カード1のタイトル'],
-    ['works_card1_purpose', '一目で内容が伝わり、クリックされやすくする', '【トップページ】制作実績カード1の目的'],
-    ['works_card1_approach', '情報の優先順位を整理し、視線誘導で迷わせない設計', '【トップページ】制作実績カード1の工夫'],
-    ['works_card2_title', 'キャンペーン告知（WEB/SNS）', '【トップページ】制作実績カード2のタイトル'],
-    ['works_card2_purpose', '期間・内容を瞬時に理解できるようにする', '【トップページ】制作実績カード2の目的'],
-    ['works_card2_approach', '可読性優先の文字設計＋配色で、スマホでも読みやすく調整', '【トップページ】制作実績カード2の工夫'],
-    ['works_card3_title', 'SNS投稿テンプレ（運用型）', '【トップページ】制作実績カード3のタイトル'],
+    ['works_card1_title', '温泉施設パンフレット', '【トップページ】制作実績カード1のタイトル'],
+    ['works_card1_purpose', '施設の魅力を視覚的に伝え、来店意欲を高める', '【トップページ】制作実績カード1の目的'],
+    ['works_card1_approach', '写真とレイアウトで、温泉の雰囲気を丁寧に表現', '【トップページ】制作実績カード1の工夫'],
+    ['works_card2_title', 'キャンペーンバナー', '【トップページ】制作実績カード2のタイトル'],
+    ['works_card2_purpose', '期間限定の訴求で、クリック率を最大化', '【トップページ】制作実績カード2の目的'],
+    ['works_card2_approach', '目を引くデザインで、瞬時に内容が伝わる設計', '【トップページ】制作実績カード2の工夫'],
+    ['works_card3_title', 'メニューデザイン', '【トップページ】制作実績カード3のタイトル'],
     ['works_card3_purpose', '更新が止まらない運用を前提に、継続できる形にする', '【トップページ】制作実績カード3の目的'],
     ['works_card3_approach', '差し替え前提のレイアウトで、誰でも運用できる構造に統一', '【トップページ】制作実績カード3の工夫'],
-    ['works_note', '守秘義務のある案件が多いため、掲載できる範囲で一部加工したサンプルを掲載しています。詳細はお打ち合わせ時に、開示可能な範囲でご案内します。', '【トップページ】制作実績セクションの注釈'],
+    ['works_note', '守秘義務の関係上、掲載内容は一部加工しています。<br>詳細はお打ち合わせ時にご案内いたします。', '【トップページ】制作実績セクションの注釈'],
     ['flow_section_title', '制作の流れ', '【トップページ】制作の流れセクションのタイトル'],
     ['flow_step1_title', 'ヒアリング', '【トップページ】制作の流れステップ1のタイトル'],
     ['flow_step1_text', '目的、ターゲット、課題を整理します。', '【トップページ】制作の流れステップ1の説明'],
@@ -75,9 +75,13 @@ function updateRispondereSettings() {
     ['service_section3_title', '業務推進・仕組み化', '【サービスページ】サービス3のタイトル'],
     ['service_section3_text', 'マニュアル作成、管理表整備、テンプレート化など、更新が止まらない仕組みづくりをお手伝いします。', '【サービスページ】サービス3の説明'],
     ['about_page_title', '会社紹介', '【会社紹介ページ】ページタイトル'],
-    ['about_page_lead', 'Rispondereは、デザインを止めない、現場が回る状態をつくるデザイン会社です。', '【会社紹介ページ】ページリード文'],
-    ['about_philosophy_title', '大切にしていること', '【会社紹介ページ】理念セクションのタイトル'],
-    ['about_philosophy_text', '「作って終わり」ではなく、更新しやすく、運用し続けられるデザインを大切にしています。<br>制作と運用を分けず、現場が回る状態までを一緒につくります。', '【会社紹介ページ】理念セクションの本文'],
+    ['about_page_lead', '小さなチームで、誠実に、長く寄り添う。<br>Rispondereは、制作と運用を切り離さないデザイン会社です。', '【会社紹介ページ】ページリード文'],
+    ['about_feature1_title', '少人数体制', '【会社紹介ページ】特徴1のタイトル'],
+    ['about_feature1_text', '役割を細かく分けすぎず、<br>チーム全体で制作を支えます。', '【会社紹介ページ】特徴1の説明'],
+    ['about_feature2_title', 'スピード対応', '【会社紹介ページ】特徴2のタイトル'],
+    ['about_feature2_text', '柔軟な体制で、<br>スピード感を持った対応が可能です。', '【会社紹介ページ】特徴2の説明'],
+    ['about_feature3_title', '長期サポート', '【会社紹介ページ】特徴3のタイトル'],
+    ['about_feature3_text', '制作から運用まで、<br>長く寄り添ってサポートします。', '【会社紹介ページ】特徴3の説明'],
     ['recruit_hero_badge', '正社員募集', '【採用ページ】募集バッジテキスト'],
     ['recruit_hero_title', '制作・運用を支える<br>「業務推進サポート」', '【採用ページ】ヒーローセクションのタイトル'],
     ['recruit_hero_text', '腰を据えて働きながら、制作の進行を整え、<br>更新が止まらない状態をつくる仕事です。<br><br>未経験からスタートしたスタッフも多く、<br>一つずつ業務を覚えながら成長できる環境です。', '【採用ページ】ヒーローセクションの説明文'],
@@ -112,10 +116,10 @@ function updateRispondereSettings() {
     ['company_business', '広告・Web・販促物の制作、運用サポート', '【全体】事業内容'],
     ['company_line_id', '@270wnwwg', '【全体】公式LINEアカウントID'],
     ['company_line_url', 'https://line.me/R/ti/p/@270wnwwg', '【全体】公式LINEアカウントURL'],
-    ['logo_url', 'https://rispondere.github.io/rispondere.co.jp/images/logo/rispondere-logo-final.png', '【全体】ロゴ画像URL（最終版）'],
-    ['works_image1', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像1（バナー制作）'],
-    ['works_image2', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像2（Webサイト制作）'],
-    ['works_image3', 'https://rispondere.github.io/rispondere.co.jp/images/placeholder.svg', '【トップページ】制作実績画像3（広告素材制作）'],
+    ['logo_url', 'https://rispondere.co.jp/images/logo/rispondere-logo-final.png', '【全体】ロゴ画像URL（最終版）'],
+    ['works_image1', 'https://rispondere.co.jp/images/logo/works_01_spa.jpg', '【トップページ】制作実績画像1（温泉パンフレット）'],
+    ['works_image2', 'https://rispondere.co.jp/images/logo/works_02_campaign.jpg', '【トップページ】制作実績画像2（キャンペーンバナー）'],
+    ['works_image3', 'https://rispondere.co.jp/images/logo/works_03_menu.jpg', '【トップページ】制作実績画像3（メニューデザイン）'],
     ['meta_title', '有限会社Rispondere｜デザインを、止めない。', '【全体】サイトタイトル（SEO）'],
     ['meta_description', 'Rispondere（リスポンドレ）は、広告・Web・販促物の制作を行うデザイン会社です。「作って終わり」ではなく、更新しやすく、運用し続けられるデザインを大切にしています。', '【全体】サイト説明（SEO）'],
     ['footer_copyright', '有限会社Rispondere All Rights Reserved.', '【全体】フッター コピーライト'],
@@ -163,7 +167,7 @@ function updateRispondereSettings() {
   // 完了メッセージ
   Logger.log('\n✅ Rispondereサイトデータの更新が完了しました！');
   Logger.log('📊 更新データ: ' + (data.length - 1) + '項目');
-  Logger.log('🔗 サイトURL: https://rispondere.github.io/rispondere.co.jp/');
+  Logger.log('🔗 サイトURL: https://rispondere.co.jp/');
   
   // ユーザーに通知
   SpreadsheetApp.getUi().alert(
@@ -174,9 +178,12 @@ function updateRispondereSettings() {
     '主な更新内容:\n' +
     '• トップページ: 全セクション対応\n' +
     '• サービスページ: 3項目追加\n' +
+    '• 会社紹介ページ: 3つの特徴追加\n' +
     '• 採用ページ: 給与・福利厚生追加\n' +
     '• お問い合わせページ: LINE情報追加\n' +
     '• 会社情報: 電話番号・事業内容追加\n' +
+    '• 制作実績: 温泉・キャンペーン・メニュー画像更新\n' +
+    '• 独自ドメイン: https://rispondere.co.jp/ 対応\n' +
     '• ナビゲーション: 全リンク対応',
     SpreadsheetApp.getUi().ButtonSet.OK
   );
@@ -200,17 +207,19 @@ function onOpen() {
 function showVersionInfo() {
   SpreadsheetApp.getUi().alert(
     'Rispondere スプレッドシート更新ツール',
-    '📋 バージョン: 2.0.0\n' +
-    '📅 最終更新: 2026-01-09\n' +
-    '📊 データ項目数: 108項目\n\n' +
-    '✨ 新機能:\n' +
-    '• トップページ全セクション対応\n' +
-    '• サービスページ詳細追加\n' +
-    '• 採用ページ完全対応\n' +
-    '• お問い合わせページ対応\n' +
-    '• 会社情報・ナビゲーション対応\n\n' +
+    '📋 バージョン: 3.0.0\n' +
+    '📅 最終更新: 2026-01-13\n' +
+    '📊 データ項目数: 114項目\n\n' +
+    '✨ 最新の更新:\n' +
+    '• 制作実績画像を実際の画像に変更\n' +
+    '  - 温泉施設パンフレット\n' +
+    '  - キャンペーンバナー\n' +
+    '  - メニューデザイン\n' +
+    '• 独自ドメイン対応（rispondere.co.jp）\n' +
+    '• 会社紹介ページの特徴セクション追加\n' +
+    '• 全ページのパスを独自ドメインに対応\n\n' +
     '🌐 サイトURL:\n' +
-    'https://rispondere.github.io/rispondere.co.jp/\n\n' +
+    'https://rispondere.co.jp/\n\n' +
     '💬 お問い合わせ:\n' +
     '公式LINE: @270wnwwg\n' +
     'メール: info@rispondere.jp',
