@@ -14,13 +14,13 @@ about_card3_title	仕組み化	【トップページ】できることカード3
 about_card3_text	マニュアル、管理表、テンプレートで、<br>更新が止まらない状態をつくる。	【トップページ】できることカード3の説明
 works_section_title	制作実績（Works）	【トップページ】制作実績セクションのタイトル
 works_section_lead	守秘の都合により、掲載できる範囲で一部加工したサンプルです。	【トップページ】制作実績セクションのリード文
-works_card1_title	バンフレット制作	【トップページ】制作実績カード1のタイトル
-works_card1_purpose	一目で内容が伝わり、クリックされやすくする	【トップページ】制作実績カード1の目的
-works_card1_approach	情報の優先順位を整理し、視線誘導で迷わせない設計	【トップページ】制作実績カード1の工夫
-works_card2_title	Web制作サポート	【トップページ】制作実績カード2のタイトル
-works_card2_purpose	期間・内容を瞬時に理解できるようにする	【トップページ】制作実績カード2の目的
-works_card2_approach	可読性優先の文字設計＋配色で、スマホでも読みやすく調整	【トップページ】制作実績カード2の工夫
-works_card3_title	広告素材制作	【トップページ】制作実績カード3のタイトル
+works_card1_title	温泉施設パンフレット	【トップページ】制作実績カード1のタイトル
+works_card1_purpose	施設の魅力を視覚的に伝え、来店意欲を高める	【トップページ】制作実績カード1の目的
+works_card1_approach	写真とレイアウトで、温泉の雰囲気を丁寧に表現	【トップページ】制作実績カード1の工夫
+works_card2_title	キャンペーンバナー	【トップページ】制作実績カード2のタイトル
+works_card2_purpose	期間限定の訴求で、クリック率を最大化	【トップページ】制作実績カード2の目的
+works_card2_approach	目を引くデザインで、瞬時に内容が伝わる設計	【トップページ】制作実績カード2の工夫
+works_card3_title	メニューデザイン	【トップページ】制作実績カード3のタイトル
 works_card3_purpose	更新が止まらない運用を前提に、継続できる形にする	【トップページ】制作実績カード3の目的
 works_card3_approach	差し替え前提のレイアウトで、誰でも運用できる構造に統一	【トップページ】制作実績カード3の工夫
 works_note	守秘義務の関係上、掲載内容は一部加工しています。<br>詳細はお打ち合わせ時にご案内いたします。	【トップページ】制作実績セクションの注釈
@@ -100,9 +100,9 @@ company_business	広告・Web・販促物の制作、運用サポート	【全�
 company_line_id	@270wnwwg	【全体】公式LINEアカウントID
 company_line_url	https://line.me/R/ti/p/@270wnwwg	【全体】公式LINEアカウントURL
 logo_url	https://rispondere.github.io/rispondere-website2/images/logo/rispondere-logo-final.png	【全体】ロゴ画像URL（最終版）
-works_image1	https://rispondere.github.io/rispondere-website2/images/placeholder.svg	【トップページ】制作実績画像1（バナー制作）
-works_image2	https://rispondere.github.io/rispondere-website2/images/placeholder.svg	【トップページ】制作実績画像2（Webサイト制作）
-works_image3	https://rispondere.github.io/rispondere-website2/images/placeholder.svg	【トップページ】制作実績画像3（広告素材制作）
+works_image1	https://rispondere.co.jp/images/logo/works_01_spa.jpg	【トップページ】制作実績画像1（温泉パンフレット）
+works_image2	https://rispondere.co.jp/images/logo/works_02_campaign.jpg	【トップページ】制作実績画像2（キャンペーンバナー）
+works_image3	https://rispondere.co.jp/images/logo/works_03_menu.jpg	【トップページ】制作実績画像3（メニューデザイン）
 meta_title	有限会社Rispondere｜デザインを、止めない。	【全体】サイトタイトル（SEO）
 meta_description	Rispondere（リスポンドレ）は、広告・Web・販促物の制作を行うデザイン会社です。「作って終わり」ではなく、更新しやすく、運用し続けられるデザインを大切にしています。	【全体】サイト説明（SEO）
 footer_copyright	有限会社Rispondere All Rights Reserved.	【全体】フッター コピーライト
